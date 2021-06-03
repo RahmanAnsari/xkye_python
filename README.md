@@ -16,4 +16,18 @@
 ![Updates](https://pyup.io/repos/github/RahmanAnsari/xkye_python/shield.svg?style=for-the-badge)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4953/badge)](https://bestpractices.coreinfrastructure.org/projects/4953)
 
+<!--- 
+Badges and Tools currently used
+
+Build - travis
+Test - pytest
+Test Coverage - codecov
+Linter - pylint
+Code Style - black
+Dependencies Check - pyup
+Code Quality - codefactor 
+CII Best Practises - bestpractise.coreinfrastructure 
+Docs - Read the docs
+-- >
+
 
