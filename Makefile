@@ -17,6 +17,7 @@ test:
 	pytest -vvv
 
 dist: clean
+	pip3 install -r requirements.txt
 	python3 setup.py sdist
 	python3 setup.py bdist_wheel
 
@@ -25,3 +26,4 @@ version: dist
 
 license: dist
 	python3 setup.py --license
+
