@@ -19,6 +19,10 @@ test:
 dev: clean
 	pip3 install -r requirements.txt
 
+best-practise: clean
+	pylint xkye
+	black xkye	
+
 dist: clean
 	pip3 install -r requirements.txt
 	python3 setup.py sdist

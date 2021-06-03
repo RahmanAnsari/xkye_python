@@ -2,3 +2,6 @@ pytest==6.2.4
 twine==3.4.1
 tox==3.23.1
 pytest-cov==2.12.1
+pylint==2.8.3
+black==21.5b2
+Sphinx==4.0.2
