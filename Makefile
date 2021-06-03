@@ -16,6 +16,9 @@ clean: clean-pyc clean-dist
 test:
 	pytest -vvv
 
+dev: clean
+	pip3 install -r requirements.txt
+
 dist: clean
 	pip3 install -r requirements.txt
 	python3 setup.py sdist
