@@ -5,11 +5,11 @@
 </p>
 
 
-![Travis (.com)](https://img.shields.io/travis/com/RahmanAnsari/xkye_python?style=for-the-badge)
-![Codecov](https://img.shields.io/codecov/c/github/RahmanAnsari/xkye_python?style=for-the-badge)
-![CodeStyle](https://img.shields.io/badge/code%20style-black-black?style=for-the-badge)
-![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/RahmanAnsari/xkye_python?style=for-the-badge)
-![Read the Docs](https://img.shields.io/readthedocs/xkye-python?style=for-the-badge)
+![Travis (.com)](https://img.shields.io/travis/com/RahmanAnsari/xkye_python?style=for-the-badge&labelColor=000000)
+![Codecov](https://img.shields.io/codecov/c/github/RahmanAnsari/xkye_python?style=for-the-badge&labelColor=000000)
+![CodeStyle](https://img.shields.io/badge/code%20style-black-black?style=for-the-badge&labelColor=000000)
+![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/RahmanAnsari/xkye_python?style=for-the-badge&labelColor=000000)
+![Read the Docs](https://img.shields.io/readthedocs/xkye-python?style=for-the-badge&labelColor=000000)
 
 <br />
 
