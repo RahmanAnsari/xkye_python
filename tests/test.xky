@@ -1,0 +1,34 @@
+"""
+Xkye File
+"""
+
+[[global]]              #globe initialization
+
+[[shard]](4)            #clutch span declaration
+
+@key1   'value'
+@key2   'value'
+@key3   'value2'
+
+[[shard]]               #userdefined clutch "shard" definition
+@shardkey               'shard_value'
+@shardip                127.0.0.1
+@shardsubnet            192.168.0.1/24
+@shardbool              FALSE
+
+[[shard][3]]            #userdefined clutch definition for third set "shard" clutch
+@shardnewkey            'shard new value'
+@shardsubnet            192.168.0.1/24
+
+
+#Grouping Example
+[[groupclutch]]         #dynamic grouping of clusters, will be in top to bottom fashion
+[shard]
+[shard][3]
+
+
+#getting outputs
+? key1
+? shardip \shard
+? shardsubnet \shard (3)
+

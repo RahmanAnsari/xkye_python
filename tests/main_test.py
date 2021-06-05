@@ -1,11 +1,20 @@
-from xkye import __main__
+from xkye import *
+import pytest
 
-#To test the positive status
-def test_success_main():
-    assert __main__.main() == "This is the main routine"
+#To test the missing file
+def test_read_missing_file():
+    xkyFile = "/home/rahi/Desktop/lang/xkye_python/test/test.xky"
+    with pytest.raises(Exception):
+        m = io(xkyFile)
+        assert m.read() == None
 
 
-#To test the none status
-def test_none_main():
-    assert __main__.main('test') == None
+#To test the read operation
+def test_read_file():
+    xkyFile = "/home/rahi/Desktop/lang/xkye_python/tests/test.xky"
+
+    xkye = io(xkyFile)
+    dictionary = xkye.read()
+    assert dictionary != {}
+
 
