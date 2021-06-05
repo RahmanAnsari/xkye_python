@@ -15,7 +15,7 @@ setup(
     packages = find_packages(),
     install_requires=[
         # put packages here
-        antlr4-python3-runtime,
+        'antlr4-python3-runtime',
     ],
     classifiers= [
         "Development Status :: 1 - Planning",
