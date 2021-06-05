@@ -1,0 +1,8 @@
+"""
+Xkye File
+"""
+
+[[global]]              #globe initialization
+
+[[shard]](4)            #clutch span declaration
+[[shard]](5)

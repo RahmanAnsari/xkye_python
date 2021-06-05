@@ -5,7 +5,6 @@ from typing.io import TextIO
 import sys
 
 
-
 def serializedATN():
     with StringIO() as buf:
         buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2\31")
@@ -14,8 +13,8 @@ def serializedATN():
         buf.write("\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23")
         buf.write("\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30")
         buf.write("\4\31\t\31\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36")
-        buf.write("\t\36\4\37\t\37\4 \t \4!\t!\4\"\t\"\4#\t#\4$\t$\4%\t%")
-        buf.write("\4&\t&\4\'\t\'\4(\t(\4)\t)\4*\t*\4+\t+\4,\t,\4-\t-\4.")
+        buf.write('\t\36\4\37\t\37\4 \t \4!\t!\4"\t"\4#\t#\4$\t$\4%\t%')
+        buf.write("\4&\t&\4'\t'\4(\t(\4)\t)\4*\t*\4+\t+\4,\t,\4-\t-\4.")
         buf.write("\t.\4/\t/\4\60\t\60\4\61\t\61\4\62\t\62\4\63\t\63\3\2")
         buf.write("\3\2\3\2\3\2\3\2\3\2\3\2\3\3\3\3\3\4\3\4\3\5\3\5\3\6\3")
         buf.write("\6\3\7\3\7\3\b\3\b\3\t\3\t\3\n\3\n\3\13\3\13\3\f\3\f\3")
@@ -24,8 +23,8 @@ def serializedATN():
         buf.write("\3\30\3\30\3\31\3\31\3\32\3\32\3\33\3\33\3\34\3\34\3\35")
         buf.write("\3\35\3\36\3\36\3\36\3\36\3\36\3\36\3\36\3\36\3\37\6\37")
         buf.write("\u00ae\n\37\r\37\16\37\u00af\3\37\6\37\u00b3\n\37\r\37")
-        buf.write("\16\37\u00b4\3\37\3\37\3 \3 \3!\3!\3\"\3\"\3#\3#\3$\3")
-        buf.write("$\3%\3%\3&\3&\3\'\3\'\3(\3(\3)\3)\5)\u00cd\n)\3*\3*\3")
+        buf.write('\16\37\u00b4\3\37\3\37\3 \3 \3!\3!\3"\3"\3#\3#\3$\3')
+        buf.write("$\3%\3%\3&\3&\3'\3'\3(\3(\3)\3)\5)\u00cd\n)\3*\3*\3")
         buf.write("*\3*\3*\3+\3+\3+\3+\3+\3+\3,\3,\3,\3,\3,\3,\3,\3,\5,\u00e2")
         buf.write("\n,\3-\6-\u00e5\n-\r-\16-\u00e6\3-\3-\6-\u00eb\n-\r-\16")
         buf.write("-\u00ec\3.\6.\u00f0\n.\r.\16.\u00f1\3/\3/\7/\u00f6\n/")
@@ -35,7 +34,7 @@ def serializedATN():
         buf.write("\n\62\f\62\16\62\u0115\13\62\3\62\3\62\3\62\3\62\3\62")
         buf.write("\3\62\3\63\6\63\u011e\n\63\r\63\16\63\u011f\3\63\3\63")
         buf.write("\4\u00f7\u0113\2\64\3\3\5\2\7\2\t\2\13\2\r\2\17\2\21\2")
-        buf.write("\23\2\25\2\27\2\31\2\33\2\35\2\37\2!\2#\2%\2\'\2)\2+\2")
+        buf.write("\23\2\25\2\27\2\31\2\33\2\35\2\37\2!\2#\2%\2'\2)\2+\2")
         buf.write("-\2/\2\61\2\63\2\65\2\67\29\2;\4=\5?\6A\7C\bE\tG\nI\13")
         buf.write("K\fM\rO\16Q\17S\20U\21W\22Y\23[\24]\25_\26a\27c\30e\31")
         buf.write("\3\2!\4\2CCcc\4\2DDdd\4\2EEee\4\2FFff\4\2GGgg\4\2HHhh")
@@ -43,7 +42,7 @@ def serializedATN():
         buf.write("Ooo\4\2PPpp\4\2QQqq\4\2RRrr\4\2SSss\4\2TTtt\4\2UUuu\4")
         buf.write("\2VVvv\4\2WWww\4\2XXxx\4\2YYyy\4\2ZZzz\4\2[[{{\4\2\\\\")
         buf.write("||\3\2\62;\3\2c|\5\2\62;aac|\4\2\f\f\17\17\5\2\13\f\16")
-        buf.write("\17\"\"\2\u0114\2\3\3\2\2\2\2;\3\2\2\2\2=\3\2\2\2\2?\3")
+        buf.write('\17""\2\u0114\2\3\3\2\2\2\2;\3\2\2\2\2=\3\2\2\2\2?\3')
         buf.write("\2\2\2\2A\3\2\2\2\2C\3\2\2\2\2E\3\2\2\2\2G\3\2\2\2\2I")
         buf.write("\3\2\2\2\2K\3\2\2\2\2M\3\2\2\2\2O\3\2\2\2\2Q\3\2\2\2\2")
         buf.write("S\3\2\2\2\2U\3\2\2\2\2W\3\2\2\2\2Y\3\2\2\2\2[\3\2\2\2")
@@ -52,7 +51,7 @@ def serializedATN():
         buf.write("\2\2\rv\3\2\2\2\17x\3\2\2\2\21z\3\2\2\2\23|\3\2\2\2\25")
         buf.write("~\3\2\2\2\27\u0080\3\2\2\2\31\u0082\3\2\2\2\33\u0084\3")
         buf.write("\2\2\2\35\u0086\3\2\2\2\37\u0088\3\2\2\2!\u008a\3\2\2")
-        buf.write("\2#\u008c\3\2\2\2%\u008e\3\2\2\2\'\u0090\3\2\2\2)\u0092")
+        buf.write("\2#\u008c\3\2\2\2%\u008e\3\2\2\2'\u0090\3\2\2\2)\u0092")
         buf.write("\3\2\2\2+\u0094\3\2\2\2-\u0096\3\2\2\2/\u0098\3\2\2\2")
         buf.write("\61\u009a\3\2\2\2\63\u009c\3\2\2\2\65\u009e\3\2\2\2\67")
         buf.write("\u00a0\3\2\2\29\u00a2\3\2\2\2;\u00a4\3\2\2\2=\u00ad\3")
@@ -70,7 +69,7 @@ def serializedATN():
         buf.write("\30\3\2\2\2\u0082\u0083\t\f\2\2\u0083\32\3\2\2\2\u0084")
         buf.write("\u0085\t\r\2\2\u0085\34\3\2\2\2\u0086\u0087\t\16\2\2\u0087")
         buf.write("\36\3\2\2\2\u0088\u0089\t\17\2\2\u0089 \3\2\2\2\u008a")
-        buf.write("\u008b\t\20\2\2\u008b\"\3\2\2\2\u008c\u008d\t\21\2\2\u008d")
+        buf.write('\u008b\t\20\2\2\u008b"\3\2\2\2\u008c\u008d\t\21\2\2\u008d')
         buf.write("$\3\2\2\2\u008e\u008f\t\22\2\2\u008f&\3\2\2\2\u0090\u0091")
         buf.write("\t\23\2\2\u0091(\3\2\2\2\u0092\u0093\t\24\2\2\u0093*\3")
         buf.write("\2\2\2\u0094\u0095\t\25\2\2\u0095,\3\2\2\2\u0096\u0097")
@@ -137,7 +136,7 @@ class XkyeLexer(Lexer):
 
     atn = ATNDeserializer().deserialize(serializedATN())
 
-    decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]
+    decisionsToDFA = [DFA(ds, i) for i, ds in enumerate(atn.decisionToState)]
 
     T__0 = 1
     IP = 2
@@ -163,36 +162,110 @@ class XkyeLexer(Lexer):
     BLOCK_COMMENT = 22
     WS = 23
 
-    channelNames = [ u"DEFAULT_TOKEN_CHANNEL", u"HIDDEN" ]
+    channelNames = [u"DEFAULT_TOKEN_CHANNEL", u"HIDDEN"]
 
-    modeNames = [ "DEFAULT_MODE" ]
+    modeNames = ["DEFAULT_MODE"]
 
-    literalNames = [ "<INVALID>",
-            "'global'", "'_'", "'?'", "'\\'", "'@'", "'.'", "'['", "']'", 
-            "'('", "')'" ]
+    literalNames = [
+        "<INVALID>",
+        "'global'",
+        "'_'",
+        "'?'",
+        "'\\'",
+        "'@'",
+        "'.'",
+        "'['",
+        "']'",
+        "'('",
+        "')'",
+    ]
 
-    symbolicNames = [ "<INVALID>",
-            "IP", "SUBNET", "UNDERSCORE", "QUESTIONMARK", "BACKSLASH", "AT", 
-            "DOT", "LBRACKET", "RBRACKET", "LPAREN", "RPAREN", "BOOLEAN", 
-            "TRUE", "FALSE", "OCTET", "INTEGER_FLOAT", "INTEGER_DIGITS", 
-            "STRING", "ENTITY", "LINE_COMMENT", "BLOCK_COMMENT", "WS" ]
+    symbolicNames = [
+        "<INVALID>",
+        "IP",
+        "SUBNET",
+        "UNDERSCORE",
+        "QUESTIONMARK",
+        "BACKSLASH",
+        "AT",
+        "DOT",
+        "LBRACKET",
+        "RBRACKET",
+        "LPAREN",
+        "RPAREN",
+        "BOOLEAN",
+        "TRUE",
+        "FALSE",
+        "OCTET",
+        "INTEGER_FLOAT",
+        "INTEGER_DIGITS",
+        "STRING",
+        "ENTITY",
+        "LINE_COMMENT",
+        "BLOCK_COMMENT",
+        "WS",
+    ]
 
-    ruleNames = [ "T__0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", 
-                  "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", 
-                  "V", "W", "X", "Y", "Z", "DIGIT", "IP", "SUBNET", "UNDERSCORE", 
-                  "QUESTIONMARK", "BACKSLASH", "AT", "DOT", "LBRACKET", 
-                  "RBRACKET", "LPAREN", "RPAREN", "BOOLEAN", "TRUE", "FALSE", 
-                  "OCTET", "INTEGER_FLOAT", "INTEGER_DIGITS", "STRING", 
-                  "ENTITY", "LINE_COMMENT", "BLOCK_COMMENT", "WS" ]
+    ruleNames = [
+        "T__0",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+        "DIGIT",
+        "IP",
+        "SUBNET",
+        "UNDERSCORE",
+        "QUESTIONMARK",
+        "BACKSLASH",
+        "AT",
+        "DOT",
+        "LBRACKET",
+        "RBRACKET",
+        "LPAREN",
+        "RPAREN",
+        "BOOLEAN",
+        "TRUE",
+        "FALSE",
+        "OCTET",
+        "INTEGER_FLOAT",
+        "INTEGER_DIGITS",
+        "STRING",
+        "ENTITY",
+        "LINE_COMMENT",
+        "BLOCK_COMMENT",
+        "WS",
+    ]
 
     grammarFileName = "Xkye.g4"
 
-    def __init__(self, input=None, output:TextIO = sys.stdout):
+    def __init__(self, input=None, output: TextIO = sys.stdout):
         super().__init__(input, output)
         self.checkVersion("4.9")
-        self._interp = LexerATNSimulator(self, self.atn, self.decisionsToDFA, PredictionContextCache())
+        self._interp = LexerATNSimulator(
+            self, self.atn, self.decisionsToDFA, PredictionContextCache()
+        )
         self._actions = None
         self._predicates = None
-
-
-

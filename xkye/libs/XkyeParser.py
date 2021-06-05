@@ -3,10 +3,11 @@
 from antlr4 import *
 from io import StringIO
 import sys
+
 if sys.version_info[1] > 5:
-	from typing import TextIO
+    from typing import TextIO
 else:
-	from typing.io import TextIO
+    from typing.io import TextIO
 
 
 def serializedATN():
@@ -28,19 +29,19 @@ def serializedATN():
         buf.write("\3\16\3\17\3\17\3\20\3\20\3\20\3\21\3\21\3\22\3\22\3\22")
         buf.write("\5\22\u00a8\n\22\3\23\3\23\3\23\3\23\3\23\3\23\5\23\u00b0")
         buf.write("\n\23\3\23\2\2\24\2\4\6\b\n\f\16\20\22\24\26\30\32\34")
-        buf.write("\36 \"$\2\4\5\2\4\5\17\17\22\25\4\2\22\22\24\24\2\u00b0")
+        buf.write('\36 "$\2\4\5\2\4\5\17\17\22\25\4\2\22\22\24\24\2\u00b0')
         buf.write("\2\60\3\2\2\2\4L\3\2\2\2\6R\3\2\2\2\bX\3\2\2\2\nc\3\2")
         buf.write("\2\2\fi\3\2\2\2\16t\3\2\2\2\20\u0083\3\2\2\2\22\u0086")
         buf.write("\3\2\2\2\24\u008b\3\2\2\2\26\u008f\3\2\2\2\30\u0098\3")
         buf.write("\2\2\2\32\u009a\3\2\2\2\34\u009d\3\2\2\2\36\u009f\3\2")
-        buf.write("\2\2 \u00a2\3\2\2\2\"\u00a4\3\2\2\2$\u00a9\3\2\2\2&(\5")
-        buf.write("\4\3\2\'&\3\2\2\2\'(\3\2\2\2()\3\2\2\2)-\5\16\b\2*,\5")
-        buf.write("\"\22\2+*\3\2\2\2,/\3\2\2\2-+\3\2\2\2-.\3\2\2\2.\61\3")
-        buf.write("\2\2\2/-\3\2\2\2\60\'\3\2\2\2\60\61\3\2\2\2\61G\3\2\2")
-        buf.write("\2\62\66\5\f\7\2\63\65\5\"\22\2\64\63\3\2\2\2\658\3\2")
+        buf.write('\2\2 \u00a2\3\2\2\2"\u00a4\3\2\2\2$\u00a9\3\2\2\2&(\5')
+        buf.write("\4\3\2'&\3\2\2\2'(\3\2\2\2()\3\2\2\2)-\5\16\b\2*,\5")
+        buf.write('"\22\2+*\3\2\2\2,/\3\2\2\2-+\3\2\2\2-.\3\2\2\2.\61\3')
+        buf.write("\2\2\2/-\3\2\2\2\60'\3\2\2\2\60\61\3\2\2\2\61G\3\2\2")
+        buf.write('\2\62\66\5\f\7\2\63\65\5"\22\2\64\63\3\2\2\2\658\3\2')
         buf.write("\2\2\66\64\3\2\2\2\66\67\3\2\2\2\67F\3\2\2\28\66\3\2\2")
         buf.write("\29;\5\f\7\2:<\5\n\6\2;:\3\2\2\2<=\3\2\2\2=;\3\2\2\2=")
-        buf.write(">\3\2\2\2>B\3\2\2\2?A\5\"\22\2@?\3\2\2\2AD\3\2\2\2B@\3")
+        buf.write('>\3\2\2\2>B\3\2\2\2?A\5"\22\2@?\3\2\2\2AD\3\2\2\2B@\3')
         buf.write("\2\2\2BC\3\2\2\2CF\3\2\2\2DB\3\2\2\2E\62\3\2\2\2E9\3\2")
         buf.write("\2\2FI\3\2\2\2GE\3\2\2\2GH\3\2\2\2HJ\3\2\2\2IG\3\2\2\2")
         buf.write("JK\7\2\2\3K\3\3\2\2\2LM\7\13\2\2MN\7\13\2\2NO\7\3\2\2")
@@ -74,30 +75,62 @@ def serializedATN():
         buf.write("\7\b\2\2\u00aa\u00af\5\30\r\2\u00ab\u00ac\7\r\2\2\u00ac")
         buf.write("\u00ad\5 \21\2\u00ad\u00ae\7\16\2\2\u00ae\u00b0\3\2\2")
         buf.write("\2\u00af\u00ab\3\2\2\2\u00af\u00b0\3\2\2\2\u00b0%\3\2")
-        buf.write("\2\2\23\'-\60\66=BEGcipv\u0083\u0088\u008d\u00a7\u00af")
+        buf.write("\2\2\23'-\60\66=BEGcipv\u0083\u0088\u008d\u00a7\u00af")
         return buf.getvalue()
 
 
-class XkyeParser ( Parser ):
+class XkyeParser(Parser):
 
     grammarFileName = "Xkye.g4"
 
     atn = ATNDeserializer().deserialize(serializedATN())
 
-    decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]
+    decisionsToDFA = [DFA(ds, i) for i, ds in enumerate(atn.decisionToState)]
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'global'", "<INVALID>", "<INVALID>", 
-                     "'_'", "'?'", "'\\'", "'@'", "'.'", "'['", "']'", "'('", 
-                     "')'" ]
+    literalNames = [
+        "<INVALID>",
+        "'global'",
+        "<INVALID>",
+        "<INVALID>",
+        "'_'",
+        "'?'",
+        "'\\'",
+        "'@'",
+        "'.'",
+        "'['",
+        "']'",
+        "'('",
+        "')'",
+    ]
 
-    symbolicNames = [ "<INVALID>", "<INVALID>", "IP", "SUBNET", "UNDERSCORE", 
-                      "QUESTIONMARK", "BACKSLASH", "AT", "DOT", "LBRACKET", 
-                      "RBRACKET", "LPAREN", "RPAREN", "BOOLEAN", "TRUE", 
-                      "FALSE", "OCTET", "INTEGER_FLOAT", "INTEGER_DIGITS", 
-                      "STRING", "ENTITY", "LINE_COMMENT", "BLOCK_COMMENT", 
-                      "WS" ]
+    symbolicNames = [
+        "<INVALID>",
+        "<INVALID>",
+        "IP",
+        "SUBNET",
+        "UNDERSCORE",
+        "QUESTIONMARK",
+        "BACKSLASH",
+        "AT",
+        "DOT",
+        "LBRACKET",
+        "RBRACKET",
+        "LPAREN",
+        "RPAREN",
+        "BOOLEAN",
+        "TRUE",
+        "FALSE",
+        "OCTET",
+        "INTEGER_FLOAT",
+        "INTEGER_DIGITS",
+        "STRING",
+        "ENTITY",
+        "LINE_COMMENT",
+        "BLOCK_COMMENT",
+        "WS",
+    ]
 
     RULE_globe = 0
     RULE_clutchheader = 1
@@ -118,48 +151,64 @@ class XkyeParser ( Parser ):
     RULE_outstring = 16
     RULE_outstringsubset = 17
 
-    ruleNames =  [ "globe", "clutchheader", "clutchdefheader", "clutchsetheader", 
-                   "subclutchset", "pairgroupset", "globalgroup", "subclutch", 
-                   "subclutchgroup", "pairgroup", "clutchspan", "entity", 
-                   "key", "value", "pair", "number", "outstring", "outstringsubset" ]
+    ruleNames = [
+        "globe",
+        "clutchheader",
+        "clutchdefheader",
+        "clutchsetheader",
+        "subclutchset",
+        "pairgroupset",
+        "globalgroup",
+        "subclutch",
+        "subclutchgroup",
+        "pairgroup",
+        "clutchspan",
+        "entity",
+        "key",
+        "value",
+        "pair",
+        "number",
+        "outstring",
+        "outstringsubset",
+    ]
 
     EOF = Token.EOF
-    T__0=1
-    IP=2
-    SUBNET=3
-    UNDERSCORE=4
-    QUESTIONMARK=5
-    BACKSLASH=6
-    AT=7
-    DOT=8
-    LBRACKET=9
-    RBRACKET=10
-    LPAREN=11
-    RPAREN=12
-    BOOLEAN=13
-    TRUE=14
-    FALSE=15
-    OCTET=16
-    INTEGER_FLOAT=17
-    INTEGER_DIGITS=18
-    STRING=19
-    ENTITY=20
-    LINE_COMMENT=21
-    BLOCK_COMMENT=22
-    WS=23
+    T__0 = 1
+    IP = 2
+    SUBNET = 3
+    UNDERSCORE = 4
+    QUESTIONMARK = 5
+    BACKSLASH = 6
+    AT = 7
+    DOT = 8
+    LBRACKET = 9
+    RBRACKET = 10
+    LPAREN = 11
+    RPAREN = 12
+    BOOLEAN = 13
+    TRUE = 14
+    FALSE = 15
+    OCTET = 16
+    INTEGER_FLOAT = 17
+    INTEGER_DIGITS = 18
+    STRING = 19
+    ENTITY = 20
+    LINE_COMMENT = 21
+    BLOCK_COMMENT = 22
+    WS = 23
 
-    def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
+    def __init__(self, input: TokenStream, output: TextIO = sys.stdout):
         super().__init__(input, output)
         self.checkVersion("4.9")
-        self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
+        self._interp = ParserATNSimulator(
+            self, self.atn, self.decisionsToDFA, self.sharedContextCache
+        )
         self._predicates = None
 
-
-
-
     class GlobeContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -167,95 +216,84 @@ class XkyeParser ( Parser ):
             return self.getToken(XkyeParser.EOF, 0)
 
         def globalgroup(self):
-            return self.getTypedRuleContext(XkyeParser.GlobalgroupContext,0)
+            return self.getTypedRuleContext(XkyeParser.GlobalgroupContext, 0)
 
-
-        def pairgroupset(self, i:int=None):
+        def pairgroupset(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(XkyeParser.PairgroupsetContext)
             else:
-                return self.getTypedRuleContext(XkyeParser.PairgroupsetContext,i)
-
+                return self.getTypedRuleContext(XkyeParser.PairgroupsetContext, i)
 
         def clutchheader(self):
-            return self.getTypedRuleContext(XkyeParser.ClutchheaderContext,0)
+            return self.getTypedRuleContext(XkyeParser.ClutchheaderContext, 0)
 
-
-        def outstring(self, i:int=None):
+        def outstring(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(XkyeParser.OutstringContext)
             else:
-                return self.getTypedRuleContext(XkyeParser.OutstringContext,i)
+                return self.getTypedRuleContext(XkyeParser.OutstringContext, i)
 
-
-        def subclutchset(self, i:int=None):
+        def subclutchset(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(XkyeParser.SubclutchsetContext)
             else:
-                return self.getTypedRuleContext(XkyeParser.SubclutchsetContext,i)
-
+                return self.getTypedRuleContext(XkyeParser.SubclutchsetContext, i)
 
         def getRuleIndex(self):
             return XkyeParser.RULE_globe
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterGlobe" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterGlobe"):
                 listener.enterGlobe(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitGlobe" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitGlobe"):
                 listener.exitGlobe(self)
-
-
-
 
     def globe(self):
 
         localctx = XkyeParser.GlobeContext(self, self._ctx, self.state)
         self.enterRule(localctx, 0, self.RULE_globe)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 46
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,2,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input, 2, self._ctx)
             if la_ == 1:
                 self.state = 37
                 self._errHandler.sync(self)
-                la_ = self._interp.adaptivePredict(self._input,0,self._ctx)
+                la_ = self._interp.adaptivePredict(self._input, 0, self._ctx)
                 if la_ == 1:
                     self.state = 36
                     self.clutchheader()
-
 
                 self.state = 39
                 self.globalgroup()
                 self.state = 43
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while _la==XkyeParser.QUESTIONMARK:
+                while _la == XkyeParser.QUESTIONMARK:
                     self.state = 40
                     self.outstring()
                     self.state = 45
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
-
-
             self.state = 69
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==XkyeParser.LBRACKET:
+            while _la == XkyeParser.LBRACKET:
                 self.state = 67
                 self._errHandler.sync(self)
-                la_ = self._interp.adaptivePredict(self._input,6,self._ctx)
+                la_ = self._interp.adaptivePredict(self._input, 6, self._ctx)
                 if la_ == 1:
                     self.state = 48
                     self.pairgroupset()
                     self.state = 52
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
-                    while _la==XkyeParser.QUESTIONMARK:
+                    while _la == XkyeParser.QUESTIONMARK:
                         self.state = 49
                         self.outstring()
                         self.state = 54
@@ -267,24 +305,24 @@ class XkyeParser ( Parser ):
                 elif la_ == 2:
                     self.state = 55
                     self.pairgroupset()
-                    self.state = 57 
+                    self.state = 57
                     self._errHandler.sync(self)
                     _alt = 1
-                    while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                    while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
                         if _alt == 1:
                             self.state = 56
                             self.subclutchset()
 
                         else:
                             raise NoViableAltException(self)
-                        self.state = 59 
+                        self.state = 59
                         self._errHandler.sync(self)
-                        _alt = self._interp.adaptivePredict(self._input,4,self._ctx)
+                        _alt = self._interp.adaptivePredict(self._input, 4, self._ctx)
 
                     self.state = 64
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
-                    while _la==XkyeParser.QUESTIONMARK:
+                    while _la == XkyeParser.QUESTIONMARK:
                         self.state = 61
                         self.outstring()
                         self.state = 66
@@ -292,7 +330,6 @@ class XkyeParser ( Parser ):
                         _la = self._input.LA(1)
 
                     pass
-
 
                 self.state = 71
                 self._errHandler.sync(self)
@@ -308,20 +345,20 @@ class XkyeParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class ClutchheaderContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def LBRACKET(self, i:int=None):
+        def LBRACKET(self, i: int = None):
             if i is None:
                 return self.getTokens(XkyeParser.LBRACKET)
             else:
                 return self.getToken(XkyeParser.LBRACKET, i)
 
-        def RBRACKET(self, i:int=None):
+        def RBRACKET(self, i: int = None):
             if i is None:
                 return self.getTokens(XkyeParser.RBRACKET)
             else:
@@ -330,16 +367,13 @@ class XkyeParser ( Parser ):
         def getRuleIndex(self):
             return XkyeParser.RULE_clutchheader
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterClutchheader" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterClutchheader"):
                 listener.enterClutchheader(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitClutchheader" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitClutchheader"):
                 listener.exitClutchheader(self)
-
-
-
 
     def clutchheader(self):
 
@@ -365,24 +399,23 @@ class XkyeParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class ClutchdefheaderContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def LBRACKET(self, i:int=None):
+        def LBRACKET(self, i: int = None):
             if i is None:
                 return self.getTokens(XkyeParser.LBRACKET)
             else:
                 return self.getToken(XkyeParser.LBRACKET, i)
 
         def entity(self):
-            return self.getTypedRuleContext(XkyeParser.EntityContext,0)
+            return self.getTypedRuleContext(XkyeParser.EntityContext, 0)
 
-
-        def RBRACKET(self, i:int=None):
+        def RBRACKET(self, i: int = None):
             if i is None:
                 return self.getTokens(XkyeParser.RBRACKET)
             else:
@@ -391,16 +424,13 @@ class XkyeParser ( Parser ):
         def getRuleIndex(self):
             return XkyeParser.RULE_clutchdefheader
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterClutchdefheader" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterClutchdefheader"):
                 listener.enterClutchdefheader(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitClutchdefheader" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitClutchdefheader"):
                 listener.exitClutchdefheader(self)
-
-
-
 
     def clutchdefheader(self):
 
@@ -426,46 +456,41 @@ class XkyeParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class ClutchsetheaderContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def LBRACKET(self, i:int=None):
+        def LBRACKET(self, i: int = None):
             if i is None:
                 return self.getTokens(XkyeParser.LBRACKET)
             else:
                 return self.getToken(XkyeParser.LBRACKET, i)
 
         def entity(self):
-            return self.getTypedRuleContext(XkyeParser.EntityContext,0)
+            return self.getTypedRuleContext(XkyeParser.EntityContext, 0)
 
-
-        def RBRACKET(self, i:int=None):
+        def RBRACKET(self, i: int = None):
             if i is None:
                 return self.getTokens(XkyeParser.RBRACKET)
             else:
                 return self.getToken(XkyeParser.RBRACKET, i)
 
         def number(self):
-            return self.getTypedRuleContext(XkyeParser.NumberContext,0)
-
+            return self.getTypedRuleContext(XkyeParser.NumberContext, 0)
 
         def getRuleIndex(self):
             return XkyeParser.RULE_clutchsetheader
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterClutchsetheader" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterClutchsetheader"):
                 listener.enterClutchsetheader(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitClutchsetheader" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitClutchsetheader"):
                 listener.exitClutchsetheader(self)
-
-
-
 
     def clutchsetheader(self):
 
@@ -497,38 +522,32 @@ class XkyeParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class SubclutchsetContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def subclutchgroup(self):
-            return self.getTypedRuleContext(XkyeParser.SubclutchgroupContext,0)
-
+            return self.getTypedRuleContext(XkyeParser.SubclutchgroupContext, 0)
 
         def clutchdefheader(self):
-            return self.getTypedRuleContext(XkyeParser.ClutchdefheaderContext,0)
-
+            return self.getTypedRuleContext(XkyeParser.ClutchdefheaderContext, 0)
 
         def clutchsetheader(self):
-            return self.getTypedRuleContext(XkyeParser.ClutchsetheaderContext,0)
-
+            return self.getTypedRuleContext(XkyeParser.ClutchsetheaderContext, 0)
 
         def getRuleIndex(self):
             return XkyeParser.RULE_subclutchset
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterSubclutchset" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterSubclutchset"):
                 listener.enterSubclutchset(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitSubclutchset" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitSubclutchset"):
                 listener.exitSubclutchset(self)
-
-
-
 
     def subclutchset(self):
 
@@ -538,7 +557,7 @@ class XkyeParser ( Parser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 97
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,8,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input, 8, self._ctx)
             if la_ == 1:
                 self.state = 95
                 self.clutchdefheader()
@@ -548,7 +567,6 @@ class XkyeParser ( Parser ):
                 self.state = 96
                 self.clutchsetheader()
                 pass
-
 
             self.state = 99
             self.subclutchgroup()
@@ -560,38 +578,32 @@ class XkyeParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class PairgroupsetContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def pairgroup(self):
-            return self.getTypedRuleContext(XkyeParser.PairgroupContext,0)
-
+            return self.getTypedRuleContext(XkyeParser.PairgroupContext, 0)
 
         def clutchdefheader(self):
-            return self.getTypedRuleContext(XkyeParser.ClutchdefheaderContext,0)
-
+            return self.getTypedRuleContext(XkyeParser.ClutchdefheaderContext, 0)
 
         def clutchsetheader(self):
-            return self.getTypedRuleContext(XkyeParser.ClutchsetheaderContext,0)
-
+            return self.getTypedRuleContext(XkyeParser.ClutchsetheaderContext, 0)
 
         def getRuleIndex(self):
             return XkyeParser.RULE_pairgroupset
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterPairgroupset" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterPairgroupset"):
                 listener.enterPairgroupset(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitPairgroupset" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitPairgroupset"):
                 listener.exitPairgroupset(self)
-
-
-
 
     def pairgroupset(self):
 
@@ -601,7 +613,7 @@ class XkyeParser ( Parser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 103
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,9,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input, 9, self._ctx)
             if la_ == 1:
                 self.state = 101
                 self.clutchdefheader()
@@ -611,7 +623,6 @@ class XkyeParser ( Parser ):
                 self.state = 102
                 self.clutchsetheader()
                 pass
-
 
             self.state = 105
             self.pairgroup()
@@ -623,57 +634,52 @@ class XkyeParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class GlobalgroupContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def pairgroup(self, i:int=None):
+        def pairgroup(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(XkyeParser.PairgroupContext)
             else:
-                return self.getTypedRuleContext(XkyeParser.PairgroupContext,i)
+                return self.getTypedRuleContext(XkyeParser.PairgroupContext, i)
 
-
-        def clutchspan(self, i:int=None):
+        def clutchspan(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(XkyeParser.ClutchspanContext)
             else:
-                return self.getTypedRuleContext(XkyeParser.ClutchspanContext,i)
-
+                return self.getTypedRuleContext(XkyeParser.ClutchspanContext, i)
 
         def getRuleIndex(self):
             return XkyeParser.RULE_globalgroup
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterGlobalgroup" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterGlobalgroup"):
                 listener.enterGlobalgroup(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitGlobalgroup" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitGlobalgroup"):
                 listener.exitGlobalgroup(self)
-
-
-
 
     def globalgroup(self):
 
         localctx = XkyeParser.GlobalgroupContext(self, self._ctx, self.state)
         self.enterRule(localctx, 12, self.RULE_globalgroup)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 114 
+            self.state = 114
             self._errHandler.sync(self)
             _alt = 1
-            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+            while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
                 if _alt == 1:
                     self.state = 110
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
-                    while _la==XkyeParser.LBRACKET:
+                    while _la == XkyeParser.LBRACKET:
                         self.state = 107
                         self.clutchspan()
                         self.state = 112
@@ -685,9 +691,9 @@ class XkyeParser ( Parser ):
 
                 else:
                     raise NoViableAltException(self)
-                self.state = 116 
+                self.state = 116
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,11,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input, 11, self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -697,46 +703,41 @@ class XkyeParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class SubclutchContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def LBRACKET(self, i:int=None):
+        def LBRACKET(self, i: int = None):
             if i is None:
                 return self.getTokens(XkyeParser.LBRACKET)
             else:
                 return self.getToken(XkyeParser.LBRACKET, i)
 
         def entity(self):
-            return self.getTypedRuleContext(XkyeParser.EntityContext,0)
+            return self.getTypedRuleContext(XkyeParser.EntityContext, 0)
 
-
-        def RBRACKET(self, i:int=None):
+        def RBRACKET(self, i: int = None):
             if i is None:
                 return self.getTokens(XkyeParser.RBRACKET)
             else:
                 return self.getToken(XkyeParser.RBRACKET, i)
 
         def number(self):
-            return self.getTypedRuleContext(XkyeParser.NumberContext,0)
-
+            return self.getTypedRuleContext(XkyeParser.NumberContext, 0)
 
         def getRuleIndex(self):
             return XkyeParser.RULE_subclutch
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterSubclutch" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterSubclutch"):
                 listener.enterSubclutch(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitSubclutch" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitSubclutch"):
                 listener.exitSubclutch(self)
-
-
-
 
     def subclutch(self):
 
@@ -746,7 +747,7 @@ class XkyeParser ( Parser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 129
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,12,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input, 12, self._ctx)
             if la_ == 1:
                 self.state = 118
                 self.match(XkyeParser.LBRACKET)
@@ -771,7 +772,6 @@ class XkyeParser ( Parser ):
                 self.match(XkyeParser.RBRACKET)
                 pass
 
-
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -780,33 +780,29 @@ class XkyeParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class SubclutchgroupContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def subclutch(self, i:int=None):
+        def subclutch(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(XkyeParser.SubclutchContext)
             else:
-                return self.getTypedRuleContext(XkyeParser.SubclutchContext,i)
-
+                return self.getTypedRuleContext(XkyeParser.SubclutchContext, i)
 
         def getRuleIndex(self):
             return XkyeParser.RULE_subclutchgroup
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterSubclutchgroup" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterSubclutchgroup"):
                 listener.enterSubclutchgroup(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitSubclutchgroup" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitSubclutchgroup"):
                 listener.exitSubclutchgroup(self)
-
-
-
 
     def subclutchgroup(self):
 
@@ -814,19 +810,19 @@ class XkyeParser ( Parser ):
         self.enterRule(localctx, 16, self.RULE_subclutchgroup)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 132 
+            self.state = 132
             self._errHandler.sync(self)
             _alt = 1
-            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+            while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
                 if _alt == 1:
                     self.state = 131
                     self.subclutch()
 
                 else:
                     raise NoViableAltException(self)
-                self.state = 134 
+                self.state = 134
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,13,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input, 13, self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -836,33 +832,29 @@ class XkyeParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class PairgroupContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def pair(self, i:int=None):
+        def pair(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(XkyeParser.PairContext)
             else:
-                return self.getTypedRuleContext(XkyeParser.PairContext,i)
-
+                return self.getTypedRuleContext(XkyeParser.PairContext, i)
 
         def getRuleIndex(self):
             return XkyeParser.RULE_pairgroup
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterPairgroup" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterPairgroup"):
                 listener.enterPairgroup(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitPairgroup" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitPairgroup"):
                 listener.exitPairgroup(self)
-
-
-
 
     def pairgroup(self):
 
@@ -870,19 +862,19 @@ class XkyeParser ( Parser ):
         self.enterRule(localctx, 18, self.RULE_pairgroup)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 137 
+            self.state = 137
             self._errHandler.sync(self)
             _alt = 1
-            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+            while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
                 if _alt == 1:
                     self.state = 136
                     self.pair()
 
                 else:
                     raise NoViableAltException(self)
-                self.state = 139 
+                self.state = 139
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,14,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input, 14, self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -892,24 +884,23 @@ class XkyeParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class ClutchspanContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def LBRACKET(self, i:int=None):
+        def LBRACKET(self, i: int = None):
             if i is None:
                 return self.getTokens(XkyeParser.LBRACKET)
             else:
                 return self.getToken(XkyeParser.LBRACKET, i)
 
         def entity(self):
-            return self.getTypedRuleContext(XkyeParser.EntityContext,0)
+            return self.getTypedRuleContext(XkyeParser.EntityContext, 0)
 
-
-        def RBRACKET(self, i:int=None):
+        def RBRACKET(self, i: int = None):
             if i is None:
                 return self.getTokens(XkyeParser.RBRACKET)
             else:
@@ -919,8 +910,7 @@ class XkyeParser ( Parser ):
             return self.getToken(XkyeParser.LPAREN, 0)
 
         def number(self):
-            return self.getTypedRuleContext(XkyeParser.NumberContext,0)
-
+            return self.getTypedRuleContext(XkyeParser.NumberContext, 0)
 
         def RPAREN(self):
             return self.getToken(XkyeParser.RPAREN, 0)
@@ -928,16 +918,13 @@ class XkyeParser ( Parser ):
         def getRuleIndex(self):
             return XkyeParser.RULE_clutchspan
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterClutchspan" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterClutchspan"):
                 listener.enterClutchspan(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitClutchspan" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitClutchspan"):
                 listener.exitClutchspan(self)
-
-
-
 
     def clutchspan(self):
 
@@ -969,10 +956,10 @@ class XkyeParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class EntityContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -982,16 +969,13 @@ class XkyeParser ( Parser ):
         def getRuleIndex(self):
             return XkyeParser.RULE_entity
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterEntity" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterEntity"):
                 listener.enterEntity(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitEntity" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitEntity"):
                 listener.exitEntity(self)
-
-
-
 
     def entity(self):
 
@@ -1009,10 +993,10 @@ class XkyeParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class KeyContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -1020,22 +1004,18 @@ class XkyeParser ( Parser ):
             return self.getToken(XkyeParser.AT, 0)
 
         def entity(self):
-            return self.getTypedRuleContext(XkyeParser.EntityContext,0)
-
+            return self.getTypedRuleContext(XkyeParser.EntityContext, 0)
 
         def getRuleIndex(self):
             return XkyeParser.RULE_key
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterKey" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterKey"):
                 listener.enterKey(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitKey" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitKey"):
                 listener.exitKey(self)
-
-
-
 
     def key(self):
 
@@ -1055,10 +1035,10 @@ class XkyeParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class ValueContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -1086,27 +1066,41 @@ class XkyeParser ( Parser ):
         def getRuleIndex(self):
             return XkyeParser.RULE_value
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterValue" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterValue"):
                 listener.enterValue(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitValue" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitValue"):
                 listener.exitValue(self)
-
-
-
 
     def value(self):
 
         localctx = XkyeParser.ValueContext(self, self._ctx, self.state)
         self.enterRule(localctx, 26, self.RULE_value)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 155
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << XkyeParser.IP) | (1 << XkyeParser.SUBNET) | (1 << XkyeParser.BOOLEAN) | (1 << XkyeParser.OCTET) | (1 << XkyeParser.INTEGER_FLOAT) | (1 << XkyeParser.INTEGER_DIGITS) | (1 << XkyeParser.STRING))) != 0)):
+            if not (
+                (
+                    ((_la) & ~0x3F) == 0
+                    and (
+                        (1 << _la)
+                        & (
+                            (1 << XkyeParser.IP)
+                            | (1 << XkyeParser.SUBNET)
+                            | (1 << XkyeParser.BOOLEAN)
+                            | (1 << XkyeParser.OCTET)
+                            | (1 << XkyeParser.INTEGER_FLOAT)
+                            | (1 << XkyeParser.INTEGER_DIGITS)
+                            | (1 << XkyeParser.STRING)
+                        )
+                    )
+                    != 0
+                )
+            ):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -1119,34 +1113,29 @@ class XkyeParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class PairContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def key(self):
-            return self.getTypedRuleContext(XkyeParser.KeyContext,0)
-
+            return self.getTypedRuleContext(XkyeParser.KeyContext, 0)
 
         def value(self):
-            return self.getTypedRuleContext(XkyeParser.ValueContext,0)
-
+            return self.getTypedRuleContext(XkyeParser.ValueContext, 0)
 
         def getRuleIndex(self):
             return XkyeParser.RULE_pair
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterPair" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterPair"):
                 listener.enterPair(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitPair" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitPair"):
                 listener.exitPair(self)
-
-
-
 
     def pair(self):
 
@@ -1166,10 +1155,10 @@ class XkyeParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class NumberContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -1182,27 +1171,24 @@ class XkyeParser ( Parser ):
         def getRuleIndex(self):
             return XkyeParser.RULE_number
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterNumber" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterNumber"):
                 listener.enterNumber(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitNumber" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitNumber"):
                 listener.exitNumber(self)
-
-
-
 
     def number(self):
 
         localctx = XkyeParser.NumberContext(self, self._ctx, self.state)
         self.enterRule(localctx, 30, self.RULE_number)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 160
             _la = self._input.LA(1)
-            if not(_la==XkyeParser.OCTET or _la==XkyeParser.INTEGER_DIGITS):
+            if not (_la == XkyeParser.OCTET or _la == XkyeParser.INTEGER_DIGITS):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -1215,10 +1201,10 @@ class XkyeParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class OutstringContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -1226,32 +1212,27 @@ class XkyeParser ( Parser ):
             return self.getToken(XkyeParser.QUESTIONMARK, 0)
 
         def entity(self):
-            return self.getTypedRuleContext(XkyeParser.EntityContext,0)
-
+            return self.getTypedRuleContext(XkyeParser.EntityContext, 0)
 
         def outstringsubset(self):
-            return self.getTypedRuleContext(XkyeParser.OutstringsubsetContext,0)
-
+            return self.getTypedRuleContext(XkyeParser.OutstringsubsetContext, 0)
 
         def getRuleIndex(self):
             return XkyeParser.RULE_outstring
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterOutstring" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterOutstring"):
                 listener.enterOutstring(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitOutstring" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitOutstring"):
                 listener.exitOutstring(self)
-
-
-
 
     def outstring(self):
 
         localctx = XkyeParser.OutstringContext(self, self._ctx, self.state)
         self.enterRule(localctx, 32, self.RULE_outstring)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 162
@@ -1261,10 +1242,9 @@ class XkyeParser ( Parser ):
             self.state = 165
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==XkyeParser.BACKSLASH:
+            if _la == XkyeParser.BACKSLASH:
                 self.state = 164
                 self.outstringsubset()
-
 
         except RecognitionException as re:
             localctx.exception = re
@@ -1274,10 +1254,10 @@ class XkyeParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class OutstringsubsetContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -1285,15 +1265,13 @@ class XkyeParser ( Parser ):
             return self.getToken(XkyeParser.BACKSLASH, 0)
 
         def entity(self):
-            return self.getTypedRuleContext(XkyeParser.EntityContext,0)
-
+            return self.getTypedRuleContext(XkyeParser.EntityContext, 0)
 
         def LPAREN(self):
             return self.getToken(XkyeParser.LPAREN, 0)
 
         def number(self):
-            return self.getTypedRuleContext(XkyeParser.NumberContext,0)
-
+            return self.getTypedRuleContext(XkyeParser.NumberContext, 0)
 
         def RPAREN(self):
             return self.getToken(XkyeParser.RPAREN, 0)
@@ -1301,22 +1279,19 @@ class XkyeParser ( Parser ):
         def getRuleIndex(self):
             return XkyeParser.RULE_outstringsubset
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterOutstringsubset" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterOutstringsubset"):
                 listener.enterOutstringsubset(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitOutstringsubset" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitOutstringsubset"):
                 listener.exitOutstringsubset(self)
-
-
-
 
     def outstringsubset(self):
 
         localctx = XkyeParser.OutstringsubsetContext(self, self._ctx, self.state)
         self.enterRule(localctx, 34, self.RULE_outstringsubset)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 167
@@ -1326,14 +1301,13 @@ class XkyeParser ( Parser ):
             self.state = 173
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==XkyeParser.LPAREN:
+            if _la == XkyeParser.LPAREN:
                 self.state = 169
                 self.match(XkyeParser.LPAREN)
                 self.state = 170
                 self.number()
                 self.state = 171
                 self.match(XkyeParser.RPAREN)
-
 
         except RecognitionException as re:
             localctx.exception = re
@@ -1342,9 +1316,3 @@ class XkyeParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
-
-
-
-
-
-

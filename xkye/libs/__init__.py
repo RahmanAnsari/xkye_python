@@ -3,5 +3,4 @@ from .XkyeParser import XkyeParser
 from .XkyeExtendedListener import XkyeExtendedListener
 
 
-__all__ = ['XkyeLexer', 'XkyeParser', 'XkyeExtendedListener']
-
+__all__ = ["XkyeLexer", "XkyeParser", "XkyeExtendedListener"]

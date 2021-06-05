@@ -1,5 +1,4 @@
 from .XkyeModel import io
 
 
-__all__ = ['io']
-
+__all__ = ["io"]

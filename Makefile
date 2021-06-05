@@ -14,7 +14,7 @@ clean-dist:
 clean: clean-pyc clean-dist
 
 test:
-	pytest --cov=xkye -vvv
+	pytest --cov-report html --cov=xkye -vvv
 
 dev: clean
 	pip3 install -r requirements.txt

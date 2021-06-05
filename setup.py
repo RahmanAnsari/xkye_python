@@ -16,6 +16,7 @@ setup(
     install_requires=[
         # put packages here
         'antlr4-python3-runtime',
+        'multipledispatch',
     ],
     classifiers= [
         "Development Status :: 1 - Planning",

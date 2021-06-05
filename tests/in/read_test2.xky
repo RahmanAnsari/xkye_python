@@ -1,0 +1,12 @@
+"""
+Xkye File
+"""
+
+[[global]]              #globe initialization
+
+[[shard]](4)            #clutch span declaration
+
+@key1   'value'
+@key2   'value'
+@key3   'value2'
+@key3   'value4'
