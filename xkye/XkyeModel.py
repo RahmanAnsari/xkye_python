@@ -95,30 +95,27 @@ class io:
                     return result
 
                 raise Exception(
-                        'Requested entity "'
-                        + entity
-                        + '" not declared above. kindly check your input .xky file'
-                    )
-
-            raise Exception(
-                    'Requested clutch "'
-                    + substr
-                    + '" is not declared above. kindly check your input .xky file'
+                    'Requested entity "'
+                    + entity
+                    + '" not declared above. kindly check your input .xky file'
                 )
 
-        else:
-            if entity not in list(self.outDict[substrnew].keys()):
-                if entity in list(self.outDict[substr].keys()):
-                    result = self.outDict[substr][entity]
-                    return result
+            raise Exception(
+                'Requested clutch "'
+                + substr
+                + '" is not declared above. kindly check your input .xky file'
+            )
 
-                
-                raise Exception(
-                        'Requested entity "'
-                        + entity
-                        + '" not declared above. kindly check your input .xky file'
-                    )
+        if entity not in list(self.outDict[substrnew].keys()):
+            if entity in list(self.outDict[substr].keys()):
+                result = self.outDict[substr][entity]
+                return result
 
-            
-            result = self.outDict[substrnew][entity]
-            return result
+            raise Exception(
+                'Requested entity "'
+                + entity
+                + '" not declared above. kindly check your input .xky file'
+            )
+
+        result = self.outDict[substrnew][entity]
+        return result
