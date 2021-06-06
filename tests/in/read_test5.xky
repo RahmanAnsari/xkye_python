@@ -10,8 +10,8 @@ Xkye File
 @key1   'value'
 @key2   'value'
 @key3   'value2'
-@key4	4
-@key5	5.5
+@key4   4
+@key5   5.5
 
 
 [[shard]]               #userdefined clutch "shard" definition
@@ -32,16 +32,8 @@ Xkye File
 [shard][3]
 
 [[newgroup]]
-[shard]
-
+[sharding]
 
 [[newgroup][2]]
 [shard][3]
-
-
-#getting outputs
-? key1
-? shardip \shard
-? shardsubnet \shard (3)
-? shardsubnet \shard (2)
 

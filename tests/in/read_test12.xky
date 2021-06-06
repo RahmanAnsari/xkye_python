@@ -40,8 +40,5 @@ Xkye File
 
 
 #getting outputs
-? key1
-? shardip \shard
-? shardsubnet \shard (3)
-? shardsubnet \shard (2)
+? shardip \shard (3)
 

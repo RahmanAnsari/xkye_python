@@ -16,19 +16,12 @@ class XkyeExtendedListener(XkyeListener):
         self.outDict["global"] = {}
         self.spanList.append(("global", "1"))
 
-    # Exit a parse tree produced by XkyeParser#clutch.
-    def exitGlobe(self, ctx: XkyeParser.GlobeContext):
-        pass
 
     # Enter a parse tree produced by XkyeParser#globalgroup.
     def enterGlobalgroup(self, ctx: XkyeParser.GlobalgroupContext):
         for child in ctx.children:
             child.parent_Ctx = "global"
             child.clutch_Set = 1
-
-    # Exit a parse tree produced by XkyeParser#globalgroup.
-    def exitGlobalgroup(self, ctx: XkyeParser.GlobalgroupContext):
-        pass
 
     # Enter a parse tree produced by XkyeParser#clutchspan.
     def enterClutchspan(self, ctx: XkyeParser.ClutchspanContext):
@@ -48,25 +41,17 @@ class XkyeExtendedListener(XkyeListener):
 
         else:
             raise Exception(
-                'Cluster span for "'
+                'Clutch span for "'
                 + entity
                 + '" is already declared, kindly check your input .xky file'
             )
             # exit()
-
-    # Exit a parse tree produced by XkyeParser#clutchspan.
-    def exitClutchspan(self, ctx: XkyeParser.ClutchspanContext):
-        pass
 
     # Enter a parse tree produced by XkyeParser#pairgroup.
     def enterPairgroup(self, ctx: XkyeParser.PairgroupContext):
         for child in ctx.children:
             child.parent_Ctx = ctx.parent_Ctx
             child.clutch_Set = ctx.clutch_Set
-
-    # Exit a parse tree produced by XkyeParser#pairgroup.
-    def exitPairgroup(self, ctx: XkyeParser.PairgroupContext):
-        pass
 
     # Enter a parse tree produced by XkyeParser#pair.
     def enterPair(self, ctx: XkyeParser.PairContext):
@@ -111,9 +96,6 @@ class XkyeExtendedListener(XkyeListener):
             )
             # exit()
 
-    # Exit a parse tree produced by XkyeParser#pair.
-    def exitPair(self, ctx: XkyeParser.PairContext):
-        pass
 
     # Enter a parse tree produced by XkyeParser#pairgroupset.
     def enterPairgroupset(self, ctx: XkyeParser.PairgroupsetContext):
@@ -129,9 +111,6 @@ class XkyeExtendedListener(XkyeListener):
         ctx.pairgroup().clutch_Set = clutchSet
         ctx.pairgroup().parent_Ctx = childCtx
 
-    # Exit a parse tree produced by XkyeParser#pairgroupset.
-    def exitPairgroupset(self, ctx: XkyeParser.PairgroupsetContext):
-        pass
 
     # Enter a parse tree produced by XkyeParser#clutchdefheader.
     def enterClutchdefheader(self, ctx: XkyeParser.ClutchdefheaderContext):
@@ -145,9 +124,6 @@ class XkyeExtendedListener(XkyeListener):
             self.spanList.append(spanPair)
             self.outDict[entity] = {}
 
-    # Exit a parse tree produced by XkyeParser#clutchdefheader.
-    def exitClutchdefheader(self, ctx: XkyeParser.ClutchdefheaderContext):
-        pass
 
     # Enter a parse tree produced by XkyeParser#clutchsetheader.
     def enterClutchsetheader(self, ctx: XkyeParser.ClutchsetheaderContext):
@@ -168,7 +144,7 @@ class XkyeExtendedListener(XkyeListener):
 
             if int(clutchSet) > int(count):
                 raise Exception(
-                    'Cluster set for "'
+                    'Clutch set for "'
                     + entity
                     + '" is exceeding declared span limit, kindly check your input .xky file'
                 )
@@ -180,32 +156,25 @@ class XkyeExtendedListener(XkyeListener):
 
         else:
             raise Exception(
-                'Cluster set for "'
+                'Clutch set for "'
                 + entity
                 + '" is not declared with span limit, kindly check your input .xky file'
             )
             # exit()
 
-    # Exit a parse tree produced by XkyeParser#clutchsetheader.
-    def exitClutchsetheader(self, ctx: XkyeParser.ClutchsetheaderContext):
-        pass
 
     # Enter a parse tree produced by XkyeParser#subclutchset.
     def enterSubclutchset(self, ctx: XkyeParser.SubclutchsetContext):
         if ctx.clutchdefheader() is not None:
             childCtx = ctx.clutchdefheader().entity().getText()
             clutchSet = 1
-
-        if ctx.clutchsetheader() is not None:
+        else:
             childCtx = ctx.clutchsetheader().entity().getText()
             clutchSet = int(ctx.clutchsetheader().number().getText())
 
         ctx.subclutchgroup().clutch_Set = clutchSet
         ctx.subclutchgroup().parent_Ctx = childCtx
 
-    # Exit a parse tree produced by XkyeParser#subclutchset.
-    def exitSubclutchset(self, ctx: XkyeParser.SubclutchsetContext):
-        pass
 
     # Enter a parse tree produced by XkyeParser#subclutchgroup.
     def enterSubclutchgroup(self, ctx: XkyeParser.SubclutchgroupContext):
@@ -213,9 +182,6 @@ class XkyeExtendedListener(XkyeListener):
             child.parent_Ctx = ctx.parent_Ctx
             child.clutch_Set = ctx.clutch_Set
 
-    # Exit a parse tree produced by XkyeParser#subclutchgroup.
-    def exitSubclutchgroup(self, ctx: XkyeParser.SubclutchgroupContext):
-        pass
 
     # Enter a parse tree produced by XkyeParser#subclutch.
     def enterSubclutch(self, ctx: XkyeParser.SubclutchContext):
@@ -243,7 +209,7 @@ class XkyeExtendedListener(XkyeListener):
 
         if subclutch not in setList:
             raise Exception(
-                'Cluster set for "'
+                'Clutch set for "'
                 + subclutch
                 + '" is not defined, kindly check your input .xky file'
             )
@@ -253,7 +219,7 @@ class XkyeExtendedListener(XkyeListener):
 
         if int(setCount[indexNo]) < int(clutchSet):
             raise Exception(
-                'Cluster set for "'
+                'Clutch set for "'
                 + subclutch
                 + '" is exceeding declared span limit, kindly check your input .xky file'
             )
@@ -274,10 +240,6 @@ class XkyeExtendedListener(XkyeListener):
 
         for key in tmpDictKeys:
             self.outDict[resultDictKey][key] = self.outDict[dictKey][key]
-
-    # Exit a parse tree produced by XkyeParser#subclutch.
-    def exitSubclutch(self, ctx: XkyeParser.SubclutchContext):
-        pass
 
     # Enter a parse tree produced by XkyeParser#outstring.
     def enterOutstring(self, ctx: XkyeParser.OutstringContext):
@@ -375,6 +337,3 @@ class XkyeExtendedListener(XkyeListener):
                     result = self.outDict[substrnew][entity]
                     print(result)
 
-    # Exit a parse tree produced by XkyeParser#outstring.
-    def exitOutstring(self, ctx: XkyeParser.OutstringContext):
-        pass

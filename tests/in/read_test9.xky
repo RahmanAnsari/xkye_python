@@ -1,0 +1,22 @@
+"""
+Xkye File
+"""
+
+[[global]]              #globe initialization
+
+[[shard]](4)            #clutch span declaration
+
+@key1   'value'
+@key2   'value'
+@key3   'value2'
+@key4   4
+@key5   5.5
+
+[[shard]]               #userdefined clutch "shard" definition
+@shardkey               'shard_value'
+@shardip                127.0.0.1
+@shardsubnet            192.168.0.1/24
+@shardbool              FALSE
+
+
+? shardip \sharding

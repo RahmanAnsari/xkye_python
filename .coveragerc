@@ -10,4 +10,7 @@ exclude_lines =
     if __name__ == .__main__.:
 ignore_errors = True
 omit =
-    tests/*
+    tests/*,
+    xkye/libs/XkyeLexer.py,
+    xkye/libs/XkyeListener.py,
+    xkye/libs/XkyeParser.py

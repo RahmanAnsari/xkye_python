@@ -32,7 +32,7 @@ def test_input_file_failure_1():
     with pytest.raises(Exception):
         xkye = io(xkyFile)
         dictionary = xkye.read()
-        assert dcitionary == None
+        assert dictionary == None
 
 
 #To test the read operation failure
@@ -45,7 +45,7 @@ def test_input_file_failure_2():
     with pytest.raises(Exception):
         xkye = io(xkyFile)
         dictionary = xkye.read()
-        assert dcitionary == None
+        assert dictionary == None
 
 
 #To test the read operation failure
@@ -58,7 +58,7 @@ def test_input_file_failure_3():
     with pytest.raises(Exception):
         xkye = io(xkyFile)
         dictionary = xkye.read()
-        assert dcitionary == None
+        assert dictionary == None
 
 
 #To test the read operation failure
@@ -71,7 +71,122 @@ def test_input_file_failure_4():
     with pytest.raises(Exception):
         xkye = io(xkyFile)
         dictionary = xkye.read()
-        assert dcitionary == None
+        assert dictionary == None
+
+
+#To test the read operation failure
+def test_input_file_failure_5():
+    xkyFile = "in/read_test5.xky"
+
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    xkyFile = dir_path+"/"+xkyFile
+
+    with pytest.raises(Exception):
+        xkye = io(xkyFile)
+        dictionary = xkye.read()
+        assert dictionary == None
+
+
+#To test the read operation failure
+def test_input_file_failure_6():
+    xkyFile = "in/read_test6.xky"
+
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    xkyFile = dir_path+"/"+xkyFile
+
+    with pytest.raises(Exception):
+        xkye = io(xkyFile)
+        dictionary = xkye.read()
+        assert dictionary == None
+
+#To test the read operation failure
+def test_input_file_failure_7():
+    xkyFile = "in/read_test7.xky"
+
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    xkyFile = dir_path+"/"+xkyFile
+
+    with pytest.raises(Exception):
+        xkye = io(xkyFile)
+        dictionary = xkye.read()
+        assert dictionary == None
+
+
+#To test the read operation failure
+def test_input_file_failure_8():
+    xkyFile = "in/read_test8.xky"
+
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    xkyFile = dir_path+"/"+xkyFile
+
+    with pytest.raises(Exception):
+        xkye = io(xkyFile)
+        dictionary = xkye.read()
+        assert dictionary == None
+
+
+#To test the read operation failure
+def test_input_file_failure_9():
+    xkyFile = "in/read_test9.xky"
+
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    xkyFile = dir_path+"/"+xkyFile
+
+    with pytest.raises(Exception):
+        xkye = io(xkyFile)
+        dictionary = xkye.read()
+        assert dictionary == None
+
+
+#To test the read operation failure
+def test_input_file_failure_10():
+    xkyFile = "in/read_test10.xky"
+
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    xkyFile = dir_path+"/"+xkyFile
+
+    with pytest.raises(Exception):
+        xkye = io(xkyFile)
+        dictionary = xkye.read()
+        assert dictionary == None
+
+
+#To test the read operation failure
+def test_input_file_failure_11():
+    xkyFile = "in/read_test11.xky"
+
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    xkyFile = dir_path+"/"+xkyFile
+
+    with pytest.raises(Exception):
+        xkye = io(xkyFile)
+        dictionary = xkye.read()
+        assert dictionary == None
+
+
+#To test the read operation failure
+def test_input_file_failure_12():
+    xkyFile = "in/read_test12.xky"
+
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    xkyFile = dir_path+"/"+xkyFile
+
+    with pytest.raises(Exception):
+        xkye = io(xkyFile)
+        dictionary = xkye.read()
+        assert dictionary == None
+
+#To test the read operation failure
+def test_input_file_failure_13():
+    xkyFile = "in/read_test13.xky"
+
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    xkyFile = dir_path+"/"+xkyFile
+
+    with pytest.raises(Exception):
+        xkye = io(xkyFile)
+        dictionary = xkye.read()
+        assert dictionary == None
 
 
 #To test the outputs1
