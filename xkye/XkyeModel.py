@@ -100,8 +100,7 @@ class io:
                         + '" not declared above. kindly check your input .xky file'
                     )
 
-            else:
-                raise Exception(
+            raise Exception(
                     'Requested clutch "'
                     + substr
                     + '" is not declared above. kindly check your input .xky file'
@@ -120,6 +119,6 @@ class io:
                         + '" not declared above. kindly check your input .xky file'
                     )
 
-            else:
-                result = self.outDict[substrnew][entity]
-                return result
+            
+            result = self.outDict[substrnew][entity]
+            return result
