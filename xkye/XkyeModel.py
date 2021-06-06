@@ -10,7 +10,7 @@ from antlr4 import *
 from multipledispatch import dispatch
 
 
-from .libs import *
+from .libs import XkyeLexer, XkyeParser, XkyeExtendedListener
 
 
 class io:
@@ -32,8 +32,8 @@ class io:
             )
 
         # Else perfrom xky file reading task
-        input = FileStream(self.filename)
-        lexer = XkyeLexer(input)
+        inputFile = FileStream(self.filename)
+        lexer = XkyeLexer(inputFile)
         stream = CommonTokenStream(lexer)
         parser = XkyeParser(stream)
         tree = parser.globe()

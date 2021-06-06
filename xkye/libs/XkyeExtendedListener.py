@@ -16,7 +16,6 @@ class XkyeExtendedListener(XkyeListener):
         self.outDict["global"] = {}
         self.spanList.append(("global", "1"))
 
-
     # Enter a parse tree produced by XkyeParser#globalgroup.
     def enterGlobalgroup(self, ctx: XkyeParser.GlobalgroupContext):
         for child in ctx.children:
@@ -96,7 +95,6 @@ class XkyeExtendedListener(XkyeListener):
             )
             # exit()
 
-
     # Enter a parse tree produced by XkyeParser#pairgroupset.
     def enterPairgroupset(self, ctx: XkyeParser.PairgroupsetContext):
 
@@ -111,7 +109,6 @@ class XkyeExtendedListener(XkyeListener):
         ctx.pairgroup().clutch_Set = clutchSet
         ctx.pairgroup().parent_Ctx = childCtx
 
-
     # Enter a parse tree produced by XkyeParser#clutchdefheader.
     def enterClutchdefheader(self, ctx: XkyeParser.ClutchdefheaderContext):
         entity = ctx.entity().getText()
@@ -123,7 +120,6 @@ class XkyeExtendedListener(XkyeListener):
 
             self.spanList.append(spanPair)
             self.outDict[entity] = {}
-
 
     # Enter a parse tree produced by XkyeParser#clutchsetheader.
     def enterClutchsetheader(self, ctx: XkyeParser.ClutchsetheaderContext):
@@ -162,7 +158,6 @@ class XkyeExtendedListener(XkyeListener):
             )
             # exit()
 
-
     # Enter a parse tree produced by XkyeParser#subclutchset.
     def enterSubclutchset(self, ctx: XkyeParser.SubclutchsetContext):
         if ctx.clutchdefheader() is not None:
@@ -175,13 +170,11 @@ class XkyeExtendedListener(XkyeListener):
         ctx.subclutchgroup().clutch_Set = clutchSet
         ctx.subclutchgroup().parent_Ctx = childCtx
 
-
     # Enter a parse tree produced by XkyeParser#subclutchgroup.
     def enterSubclutchgroup(self, ctx: XkyeParser.SubclutchgroupContext):
         for child in ctx.children:
             child.parent_Ctx = ctx.parent_Ctx
             child.clutch_Set = ctx.clutch_Set
-
 
     # Enter a parse tree produced by XkyeParser#subclutch.
     def enterSubclutch(self, ctx: XkyeParser.SubclutchContext):
@@ -335,4 +328,3 @@ class XkyeExtendedListener(XkyeListener):
                 else:
                     result = self.outDict[substrnew][entity]
                     print(result)
-

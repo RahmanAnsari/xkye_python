@@ -1,4 +1,4 @@
-from xkye import *
+from xkye import io
 import pytest
 import os
 
@@ -19,4 +19,4 @@ def test_input_file_success():
 
     xkye = io(xkyFile)
     dictionary = xkye.read()
-    assert dictionary == True
+    assert dictionary is True

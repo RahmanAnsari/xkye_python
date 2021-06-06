@@ -20,8 +20,8 @@ dev: clean
 	pip3 install -r requirements.txt
 
 best-practise: clean
-	pylint xkye
-	black xkye	
+	black xkye
+	pylint xkye	
 
 dist: clean
 	pip3 install -r requirements.txt

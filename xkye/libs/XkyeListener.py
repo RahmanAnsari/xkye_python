@@ -84,7 +84,7 @@ class XkyeListener(ParseTreeListener):
     # Enter a parse tree produced by XkyeParser#pairgroup.
     def enterPairgroup(self, ctx: XkyeParser.PairgroupContext):
         pass
- 
+
     # Exit a parse tree produced by XkyeParser#pairgroup.
     def exitPairgroup(self, ctx: XkyeParser.PairgroupContext):
         pass

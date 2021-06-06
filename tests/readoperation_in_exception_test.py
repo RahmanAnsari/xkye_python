@@ -1,4 +1,4 @@
-from xkye import *
+from xkye import io
 import pytest
 import os
 
@@ -78,4 +78,3 @@ def test_read_file_in_exception_6():
         xkye = io(xkyFile)
         dictionary = xkye.read()
         assert dictionary is None
-

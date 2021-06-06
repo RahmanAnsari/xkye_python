@@ -1,4 +1,4 @@
-from xkye import *
+from xkye import io
 import pytest
 import os
 
@@ -176,6 +176,3 @@ def test_get_3_method_failure_3():
     with pytest.raises(Exception):
         valued = xkye.get("net","shard",3)
         assert valued is None
-
-
-
