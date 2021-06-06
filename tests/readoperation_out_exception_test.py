@@ -79,4 +79,3 @@ def test_read_file_out_exception_6():
         xkye = io(xkyFile)
         dictionary = xkye.read()
         assert dictionary is None
-

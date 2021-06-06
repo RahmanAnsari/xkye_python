@@ -65,7 +65,7 @@ class XkyeExtendedListener(XkyeListener):
         first = value[0]
         last = value[-1]
 
-        if first is "'" and last is "'":
+        if first == "'" and last == "'":
             value = value[1:-1]
 
         elif value == "TRUE" or value == "FALSE":
