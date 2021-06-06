@@ -1,42 +1,48 @@
-import sys
+# pylint: disable-msg=C0103, R0912, R1714, duplicate-code
+
+"""
+Extended Listener class for Xkye Language
+"""
 import ipaddress
 
-# from antlr4 import *
 from .XkyeParser import XkyeParser
 from .XkyeListener import XkyeListener
 
 
 class XkyeExtendedListener(XkyeListener):
-    def __init__(self, outDict):
-        self.outDict = outDict
-        self.spanList = []
+
+    """Class to extend the auto generated Xkye Listener class"""
+
+    def __init__(self, out_dict):
+        self.out_dict = out_dict
+        self.span_list = []
 
     # Enter a parse tree produced by XkyeParser#clutch.
     def enterGlobe(self, ctx: XkyeParser.GlobeContext):
-        self.outDict["global"] = {}
-        self.spanList.append(("global", "1"))
+        self.out_dict["global"] = {}
+        self.span_list.append(("global", "1"))
 
     # Enter a parse tree produced by XkyeParser#globalgroup.
     def enterGlobalgroup(self, ctx: XkyeParser.GlobalgroupContext):
         for child in ctx.children:
-            child.parent_Ctx = "global"
+            child.parent_ctx = "global"
             child.clutch_Set = 1
 
     # Enter a parse tree produced by XkyeParser#clutchspan.
     def enterClutchspan(self, ctx: XkyeParser.ClutchspanContext):
         entity = ctx.entity().getText()
 
-        setList = []
+        set_list = []
 
-        for i in self.spanList:
-            setList.append(i[0])
+        for i in self.span_list:
+            set_list.append(i[0])
 
-        if entity not in setList:
+        if entity not in set_list:
             number = ctx.number().getText()
-            spanPair = (entity, number)
+            span_pair = (entity, number)
 
-            self.spanList.append(spanPair)
-            self.outDict[entity] = {}
+            self.span_list.append(span_pair)
+            self.out_dict[entity] = {}
 
         else:
             raise Exception(
@@ -44,12 +50,11 @@ class XkyeExtendedListener(XkyeListener):
                 + entity
                 + '" is already declared, kindly check your input .xky file'
             )
-            # exit()
 
     # Enter a parse tree produced by XkyeParser#pairgroup.
     def enterPairgroup(self, ctx: XkyeParser.PairgroupContext):
         for child in ctx.children:
-            child.parent_Ctx = ctx.parent_Ctx
+            child.parent_ctx = ctx.parent_ctx
             child.clutch_Set = ctx.clutch_Set
 
     # Enter a parse tree produced by XkyeParser#pair.
@@ -58,9 +63,9 @@ class XkyeExtendedListener(XkyeListener):
         value = ctx.value().getText()
 
         if ctx.clutch_Set > 1:
-            ctx.parent_Ctx = ctx.parent_Ctx + str(ctx.clutch_Set)
+            ctx.parent_ctx = ctx.parent_ctx + str(ctx.clutch_Set)
 
-        keyList = list(self.outDict[ctx.parent_Ctx].keys())
+        key_list = list(self.out_dict[ctx.parent_ctx].keys())
 
         first = value[0]
         last = value[-1]
@@ -83,72 +88,68 @@ class XkyeExtendedListener(XkyeListener):
         else:
             value = ipaddress.ip_address(value)
 
-        if key not in keyList:
-            self.outDict[ctx.parent_Ctx][key] = value
+        if key not in key_list:
+            self.out_dict[ctx.parent_ctx][key] = value
         else:
             raise Exception(
                 "Entity "
                 + key
                 + " for "
-                + ctx.parent_Ctx
+                + ctx.parent_ctx
                 + " is already declared, kindly check your input .xky file"
             )
-            # exit()
 
     # Enter a parse tree produced by XkyeParser#pairgroupset.
     def enterPairgroupset(self, ctx: XkyeParser.PairgroupsetContext):
 
         if ctx.clutchdefheader() is not None:
-            childCtx = ctx.clutchdefheader().entity().getText()
-            clutchSet = 1
+            child_ctx = ctx.clutchdefheader().entity().getText()
+            clutch_set = 1
 
         if ctx.clutchsetheader() is not None:
-            childCtx = ctx.clutchsetheader().entity().getText()
-            clutchSet = int(ctx.clutchsetheader().number().getText())
+            child_ctx = ctx.clutchsetheader().entity().getText()
+            clutch_set = int(ctx.clutchsetheader().number().getText())
 
-        ctx.pairgroup().clutch_Set = clutchSet
-        ctx.pairgroup().parent_Ctx = childCtx
+        ctx.pairgroup().clutch_Set = clutch_set
+        ctx.pairgroup().parent_ctx = child_ctx
 
     # Enter a parse tree produced by XkyeParser#clutchdefheader.
     def enterClutchdefheader(self, ctx: XkyeParser.ClutchdefheaderContext):
         entity = ctx.entity().getText()
-        dictList = list(self.outDict.keys())
+        dict_list = list(self.out_dict.keys())
 
-        if entity not in dictList:
+        if entity not in dict_list:
             number = "1"
-            spanPair = (entity, number)
+            span_pair = (entity, number)
 
-            self.spanList.append(spanPair)
-            self.outDict[entity] = {}
+            self.span_list.append(span_pair)
+            self.out_dict[entity] = {}
 
     # Enter a parse tree produced by XkyeParser#clutchsetheader.
     def enterClutchsetheader(self, ctx: XkyeParser.ClutchsetheaderContext):
         entity = ctx.entity().getText()
-        clutchSet = int(ctx.number().getText())
-        dictList = list(self.outDict.keys())
-        setList = []
+        clutch_set = int(ctx.number().getText())
+        set_list = []
 
-        entitystr = entity + str(clutchSet)
+        entitystr = entity + str(clutch_set)
 
-        for i in self.spanList:
-            setList.append(i[0])
+        for i in self.span_list:
+            set_list.append(i[0])
 
-        if entity in setList:
+        if entity in set_list:
             # Testing set count value
-            index = setList.index(entity)
-            count = self.spanList[index][1]
+            index = set_list.index(entity)
+            count = self.span_list[index][1]
 
-            if int(clutchSet) > int(count):
+            if int(clutch_set) > int(count):
                 raise Exception(
                     'Clutch set for "'
                     + entity
                     + '" is exceeding declared span limit, kindly check your input .xky file'
                 )
-                # exit()
 
-            # Adding in outDict
-            # if entitystr not in dictList:
-            self.outDict[entitystr] = {}
+            # Adding in out_dict
+            self.out_dict[entitystr] = {}
 
         else:
             raise Exception(
@@ -156,83 +157,74 @@ class XkyeExtendedListener(XkyeListener):
                 + entity
                 + '" is not declared with span limit, kindly check your input .xky file'
             )
-            # exit()
 
     # Enter a parse tree produced by XkyeParser#subclutchset.
     def enterSubclutchset(self, ctx: XkyeParser.SubclutchsetContext):
         if ctx.clutchdefheader() is not None:
-            childCtx = ctx.clutchdefheader().entity().getText()
-            clutchSet = 1
+            child_ctx = ctx.clutchdefheader().entity().getText()
+            clutch_set = 1
         else:
-            childCtx = ctx.clutchsetheader().entity().getText()
-            clutchSet = int(ctx.clutchsetheader().number().getText())
+            child_ctx = ctx.clutchsetheader().entity().getText()
+            clutch_set = int(ctx.clutchsetheader().number().getText())
 
-        ctx.subclutchgroup().clutch_Set = clutchSet
-        ctx.subclutchgroup().parent_Ctx = childCtx
+        ctx.subclutchgroup().clutch_Set = clutch_set
+        ctx.subclutchgroup().parent_ctx = child_ctx
 
     # Enter a parse tree produced by XkyeParser#subclutchgroup.
     def enterSubclutchgroup(self, ctx: XkyeParser.SubclutchgroupContext):
         for child in ctx.children:
-            child.parent_Ctx = ctx.parent_Ctx
+            child.parent_ctx = ctx.parent_ctx
             child.clutch_Set = ctx.clutch_Set
 
     # Enter a parse tree produced by XkyeParser#subclutch.
     def enterSubclutch(self, ctx: XkyeParser.SubclutchContext):
         subclutch = ctx.entity().getText()
-        parent_Ctx = ctx.parent_Ctx
-        parent_Set = ctx.clutch_Set
+        parent_ctx = ctx.parent_ctx
+        parent_set = ctx.clutch_Set
 
-        clutchSet = ""
-        dictSuffix = ""
+        clutch_set = ""
+        dict_suffix = ""
 
         if ctx.number() is not None:
-            clutchSet = ctx.number().getText()
-            dictSuffix = ctx.number().getText()
+            clutch_set = ctx.number().getText()
+            dict_suffix = ctx.number().getText()
         else:
-            clutchSet = "1"
+            clutch_set = "1"
 
-        setList = []
-        setCount = []
+        set_list = []
+        set_count = []
 
-        subclutchstr = subclutch + str(clutchSet)
+        for i in self.span_list:
+            set_list.append(i[0])
+            set_count.append(i[1])
 
-        for i in self.spanList:
-            setList.append(i[0])
-            setCount.append(i[1])
-
-        if subclutch not in setList:
+        if subclutch not in set_list:
             raise Exception(
                 'Clutch set for "'
                 + subclutch
                 + '" is not defined, kindly check your input .xky file'
             )
-            # exit()
 
-        indexNo = setList.index(subclutch)
+        index_no = set_list.index(subclutch)
 
-        if int(setCount[indexNo]) < int(clutchSet):
+        if int(set_count[index_no]) < int(clutch_set):
             raise Exception(
                 'Clutch set for "'
                 + subclutch
                 + '" is exceeding declared span limit, kindly check your input .xky file'
             )
-            # exit()
 
-        dictKey = subclutch + dictSuffix
-        dictList = list(self.outDict.keys())
+        dict_key = subclutch + dict_suffix
 
-        if parent_Set < 2:
-            parent_Set = ""
+        if parent_set < 2:
+            parent_set = ""
 
-        resultDictKey = parent_Ctx + str(parent_Set)
+        result_dict_key = parent_ctx + str(parent_set)
 
-        tmpDictKeys = list(self.outDict[dictKey].keys())
-        tmpDictValues = list(self.outDict[dictKey].values())
+        tmp_dict_keys = list(self.out_dict[dict_key].keys())
 
-        # print(resultDictKey,dictKey)
-
-        for key in tmpDictKeys:
-            self.outDict[resultDictKey][key] = self.outDict[dictKey][key]
+        for key in tmp_dict_keys:
+            self.out_dict[result_dict_key][key] = self.out_dict[dict_key][key]
 
     # Enter a parse tree produced by XkyeParser#outstring.
     def enterOutstring(self, ctx: XkyeParser.OutstringContext):
@@ -248,52 +240,49 @@ class XkyeExtendedListener(XkyeListener):
 
         if substr == "" and subnumber == "":
 
-            dictList = list(self.outDict["global"].keys())
+            dict_list = list(self.out_dict["global"].keys())
 
-            if entity not in dictList:
+            if entity not in dict_list:
                 raise Exception(
                     'Requested entity "'
                     + entity
                     + '" not declared above. kindly check your input .xky file'
                 )
-                # exit()
 
-            result = self.outDict["global"][entity]
+            result = self.out_dict["global"][entity]
             print(result)
 
         elif subnumber == "":
 
-            dictList = list(self.outDict.keys())
+            dict_list = list(self.out_dict.keys())
 
-            if substr not in dictList:
+            if substr not in dict_list:
                 raise Exception(
                     'Requested clutch "'
                     + substr
                     + '" is not declared above. kindly check your input .xky file'
                 )
-                # exit()
 
-            if entity not in list(self.outDict[substr].keys()):
+            if entity not in list(self.out_dict[substr].keys()):
                 raise Exception(
                     'Requested entity "'
                     + entity
                     + '" not declared above. kindly check your input .xky file'
                 )
-                # exit()
 
-            result = self.outDict[substr][entity]
+            result = self.out_dict[substr][entity]
             print(result)
 
         else:
             substrnew = substr + subnumber
 
-            dictList = list(self.outDict.keys())
+            dict_list = list(self.out_dict.keys())
 
-            if substrnew not in dictList:
-                if substr in dictList:
+            if substrnew not in dict_list:
+                if substr in dict_list:
 
-                    if entity in list(self.outDict[substr].keys()):
-                        result = self.outDict[substr][entity]
+                    if entity in list(self.out_dict[substr].keys()):
+                        result = self.out_dict[substr][entity]
                         print(result)
 
                     else:
@@ -309,12 +298,11 @@ class XkyeExtendedListener(XkyeListener):
                         + substr
                         + '" is not declared above. kindly check your input .xky file'
                     )
-                    # exit()
 
             else:
-                if entity not in list(self.outDict[substrnew].keys()):
-                    if entity in list(self.outDict[substr].keys()):
-                        result = self.outDict[substr][entity]
+                if entity not in list(self.out_dict[substrnew].keys()):
+                    if entity in list(self.out_dict[substr].keys()):
+                        result = self.out_dict[substr][entity]
                         print(result)
                     else:
                         raise Exception(
@@ -324,5 +312,5 @@ class XkyeExtendedListener(XkyeListener):
                         )
 
                 else:
-                    result = self.outDict[substrnew][entity]
+                    result = self.out_dict[substrnew][entity]
                     print(result)

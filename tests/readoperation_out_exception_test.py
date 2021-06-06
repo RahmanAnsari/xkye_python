@@ -1,4 +1,4 @@
-from xkye import io
+from xkye import IO as io
 import pytest
 import os
 

@@ -1,3 +1,8 @@
+"""
+Initializing lib for import statements
+"""
+
+
 from .XkyeLexer import XkyeLexer
 from .XkyeParser import XkyeParser
 from .XkyeExtendedListener import XkyeExtendedListener

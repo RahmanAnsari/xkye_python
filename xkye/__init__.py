@@ -1,4 +1,8 @@
-from .XkyeModel import io
+"""
+Initializing xkyModule for import statements
+"""
+
+from .xkye_model import IO
 
 
-__all__ = ["io"]
+__all__ = ["IO"]

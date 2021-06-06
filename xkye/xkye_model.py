@@ -2,7 +2,6 @@
 XkyeModel.py: To perfrom Xkye language operations
 """
 
-import sys
 import os
 
 
@@ -13,17 +12,20 @@ from multipledispatch import dispatch
 from .libs import XkyeLexer, XkyeParser, XkyeExtendedListener
 
 
-class io:
+class IO:
+
+    """Class to execute input output related methods"""
 
     # To initiate the read write operation
     def __init__(self, filename):
 
         self.filename = filename
-        self.outDict = {}
+        self.out_dict = {}
 
     # To convert the input file into the outdictionary
     def read(self):
 
+        """To convert the input file into the outdictionary"""
         if not os.path.isfile(self.filename):
             raise Exception(
                 'File "'
@@ -32,66 +34,73 @@ class io:
             )
 
         # Else perfrom xky file reading task
-        inputFile = FileStream(self.filename)
-        lexer = XkyeLexer(inputFile)
+        input_file = FileStream(self.filename)
+        lexer = XkyeLexer(input_file)
         stream = CommonTokenStream(lexer)
         parser = XkyeParser(stream)
         tree = parser.globe()
-        listendX = XkyeExtendedListener(self.outDict)
+        listendx = XkyeExtendedListener(self.out_dict)
 
         walker = ParseTreeWalker()
-        walker.walk(listendX, tree)
+        walker.walk(listendx, tree)
 
         return True
 
-    # To read the values
+    # To read the values with single input
     @dispatch(str)
     def get(self, entity):
 
-        dictList = list(self.outDict["global"].keys())
+        """To read the values with single input"""
+        dict_list = list(self.out_dict["global"].keys())
 
-        if entity not in dictList:
+        if entity not in dict_list:
             raise Exception(
                 'Requested entity "'
                 + entity
                 + '" not declared above. kindly check your input .xky file'
             )
 
-        result = self.outDict["global"][entity]
+        result = self.out_dict["global"][entity]
         return result
 
+    # To read the values with double input
     @dispatch(str, str)
-    def get(self, entity, substr):
-        dictList = list(self.outDict.keys())
+    def get(self, entity, substr):  # pylint: disable-msg=E0102
 
-        if substr not in dictList:
+        """To read the values with double input"""
+        dict_list = list(self.out_dict.keys())
+
+        if substr not in dict_list:
             raise Exception(
                 'Requested clutch "'
                 + substr
                 + '" is not declared above. kindly check your input .xky file'
             )
 
-        if entity not in list(self.outDict[substr].keys()):
+        if entity not in list(self.out_dict[substr].keys()):
             raise Exception(
                 'Requested entity "'
                 + entity
                 + '" not declared above. kindly check your input .xky file'
             )
 
-        result = self.outDict[substr][entity]
+        result = self.out_dict[substr][entity]
         return result
 
+    # To read the values with triple input
     @dispatch(str, str, int)
-    def get(self, entity, substr, subnumber):
+    def get(self, entity, substr, subnumber):  # pylint: disable-msg=E0102
+
+        """To read the values with triple input"""
         subnumber = str(subnumber)
         substrnew = substr + subnumber
 
-        dictList = list(self.outDict.keys())
+        dict_list = list(self.out_dict.keys())
 
-        if substrnew not in dictList:
-            if substr in dictList:
-                if entity in list(self.outDict[substr].keys()):
-                    result = self.outDict[substr][entity]
+        if substrnew not in dict_list:
+            if substr in dict_list:
+                if entity in list(self.out_dict[substr].keys()):
+                    result = self.out_dict[substr][entity]
                     return result
 
                 raise Exception(
@@ -106,9 +115,9 @@ class io:
                 + '" is not declared above. kindly check your input .xky file'
             )
 
-        if entity not in list(self.outDict[substrnew].keys()):
-            if entity in list(self.outDict[substr].keys()):
-                result = self.outDict[substr][entity]
+        if entity not in list(self.out_dict[substrnew].keys()):
+            if entity in list(self.out_dict[substr].keys()):
+                result = self.out_dict[substr][entity]
                 return result
 
             raise Exception(
@@ -117,5 +126,5 @@ class io:
                 + '" not declared above. kindly check your input .xky file'
             )
 
-        result = self.outDict[substrnew][entity]
+        result = self.out_dict[substrnew][entity]
         return result
