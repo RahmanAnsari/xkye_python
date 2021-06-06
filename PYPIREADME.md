@@ -106,12 +106,12 @@ This project and everyone participating in it will be governed by the [Xkye Code
 </br>
 
 ## Contribution Guide
-Want to hack on Xkye-Python? Awesome! We have [Contribution-Guide](CONTRIBUTING.md). If you are not familiar with making a pull request using GitHub and/or git, please read [this guide](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests). If you're looking for ways to contribute, please look at our [issue tracker](https://github.com/RahmanAnsari/xkye_python/issues).
+Want to hack on Xkye-Python? Awesome! We have [Contribution-Guide](https://github.com/RahmanAnsari/xkye_python/blob/main/CONTRIBUTING.md). If you are not familiar with making a pull request using GitHub and/or git, please read [this guide](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests). If you're looking for ways to contribute, please look at our [issue tracker](https://github.com/RahmanAnsari/xkye_python/issues).
 
 </br>
 
 ## License
-Xkye-python is open-source standard python library for xkye language that is released under the MIT License. For details on the license, see the [LICENSE](LICENSE) file.
+Xkye-python is open-source standard python library for xkye language that is released under the MIT License. For details on the license, see the [LICENSE](https://github.com/RahmanAnsari/xkye_python/blob/main/LICENSE) file.
 
 If you like this library, help me to develop it by buying a cup of coffee
 
