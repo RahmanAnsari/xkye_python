@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
-version = open('VERSION').read().strip()
-license = open('LICENSE').read().strip()
+versiontext = open('VERSION').read().strip()
+licensetext = open('LICENSE').read().strip()
 
 setup(
     name = 'xkye',
-    version = version,
-    license = license,
+    version = versiontext,
+    license = licensetext,
     author = 'Rahman Ansari',
     author_email = 'iamrahmanansari@gmail.com',
     url = 'https://github.com/RahmanAnsari/',

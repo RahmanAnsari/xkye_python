@@ -36,3 +36,6 @@ license: dist
 
 testpy:
 	python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+
+deploy:
+	python3 -m twine upload dist/*

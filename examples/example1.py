@@ -14,8 +14,6 @@ def main():
     dir_path = os.path.dirname(os.path.realpath(__file__))
     xkyFile = dir_path+"/"+xkyFile
 
-    print(xkyFile)
-
     x = io(xkyFile)
     x.read()
 
