@@ -11,7 +11,8 @@ setup(
     author_email = 'iamrahmanansari@gmail.com',
     url = 'https://github.com/RahmanAnsari/',
     description = 'Official Python Standard Library for Xkye Language',
-    long_description = open('README.md').read().strip(),
+    long_description = open('PYPIREADME.md').read().strip(),
+    long_description_content_type='text/markdown',
     packages = find_packages(),
     install_requires=[
         # put packages here
@@ -19,7 +20,7 @@ setup(
         'multipledispatch',
     ],
     classifiers= [
-        "Development Status :: 1 - Planning",
+        "Development Status :: 5 - Production/Stable",
         "Framework :: Pytest",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",

@@ -34,3 +34,5 @@ version: dist
 license: dist
 	python3 setup.py --license
 
+testpy:
+	python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
