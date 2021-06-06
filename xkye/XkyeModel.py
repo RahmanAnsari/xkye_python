@@ -6,7 +6,7 @@ import sys
 import os
 
 
-from antlr4 import *
+from antlr4 import FileStream, CommonTokenStream, ParseTreeWalker
 from multipledispatch import dispatch
 
 
@@ -94,8 +94,7 @@ class io:
                     result = self.outDict[substr][entity]
                     return result
 
-                else:
-                    raise Exception(
+                raise Exception(
                         'Requested entity "'
                         + entity
                         + '" not declared above. kindly check your input .xky file'
@@ -114,8 +113,8 @@ class io:
                     result = self.outDict[substr][entity]
                     return result
 
-                else:
-                    raise Exception(
+                
+                raise Exception(
                         'Requested entity "'
                         + entity
                         + '" not declared above. kindly check your input .xky file'

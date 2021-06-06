@@ -1,5 +1,5 @@
 # Generated from Xkye.g4 by ANTLR 4.9
-from antlr4 import *
+from antlr4 import ParseTreeListener
 
 if __name__ is not None and "." in __name__:
     from .XkyeParser import XkyeParser
