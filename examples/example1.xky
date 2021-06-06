@@ -1,0 +1,27 @@
+"""
+Postgres Database Details Compulsary
+"""
+
+@pgadmin 'postgres'
+@pgadminpwd 'rahi11'
+@pghost 'localhost'
+@pgport 5432
+@pgadmindb 'postgres'
+
+
+"""
+Admin Details Compulsary
+"""
+
+@adminpwd 'rahi11'
+@dwzypwd 'rahi11'
+
+
+"""
+compulsary deploydb variables
+"""
+
+@shardid 1
+@dwzyuser 'dwzy'
+@dwzydb 'dwzy01'
+
