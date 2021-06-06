@@ -292,17 +292,16 @@ class XkyeExtendedListener(XkyeListener):
             if substrnew not in dictList:
                 if substr in dictList:
 
-                    if entity not in list(self.outDict[substr].keys()):
+                    if entity in list(self.outDict[substr].keys()):
+                        result = self.outDict[substr][entity]
+                        print(result)
+
+                    else:
                         raise Exception(
                             'Requested entity "'
                             + entity
                             + '" not declared above. kindly check your input .xky file'
                         )
-                        # exit()
-
-                    else:
-                        result = self.outDict[substr][entity]
-                        print(result)
 
                 else:
                     raise Exception(
@@ -314,16 +313,15 @@ class XkyeExtendedListener(XkyeListener):
 
             else:
                 if entity not in list(self.outDict[substrnew].keys()):
-                    if entity not in list(self.outDict[substr].keys()):
+                    if entity in list(self.outDict[substr].keys()):
+                        result = self.outDict[substr][entity]
+                        print(result)
+                    else:
                         raise Exception(
                             'Requested entity "'
                             + entity
                             + '" not declared above. kindly check your input .xky file'
                         )
-                        # exit()
-                    else:
-                        result = self.outDict[substr][entity]
-                        print(result)
 
                 else:
                     result = self.outDict[substrnew][entity]

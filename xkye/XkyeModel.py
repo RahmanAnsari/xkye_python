@@ -90,16 +90,16 @@ class io:
 
         if substrnew not in dictList:
             if substr in dictList:
-                if entity not in list(self.outDict[substr].keys()):
+                if entity in list(self.outDict[substr].keys()):
+                    result = self.outDict[substr][entity]
+                    return result
+
+                else:
                     raise Exception(
                         'Requested entity "'
                         + entity
                         + '" not declared above. kindly check your input .xky file'
                     )
-
-                else:
-                    result = self.outDict[substr][entity]
-                    return result
 
             else:
                 raise Exception(
@@ -110,16 +110,16 @@ class io:
 
         else:
             if entity not in list(self.outDict[substrnew].keys()):
-                if entity not in list(self.outDict[substr].keys()):
+                if entity in list(self.outDict[substr].keys()):
+                    result = self.outDict[substr][entity]
+                    return result
+
+                else:
                     raise Exception(
                         'Requested entity "'
                         + entity
                         + '" not declared above. kindly check your input .xky file'
                     )
-
-                else:
-                    result = self.outDict[substr][entity]
-                    return result
 
             else:
                 result = self.outDict[substrnew][entity]

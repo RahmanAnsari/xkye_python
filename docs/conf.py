@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Xkye Python Library'
-copyright = '2021, Rahman Ansari'
+#copyright = '2021, Rahman Ansari'
 author = 'Rahman Ansari'
 
 # The full version, including alpha/beta/rc tags
