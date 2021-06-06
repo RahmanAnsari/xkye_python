@@ -19,4 +19,5 @@ Xkye File
 @shardbool              FALSE
 
 
+#To test if clutch span is not defined & the defined clutch is none
 ? shardip \sharding

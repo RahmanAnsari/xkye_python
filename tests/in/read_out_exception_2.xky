@@ -18,5 +18,5 @@ Xkye File
 @shardsubnet            192.168.0.1/24
 @shardbool              FALSE
 
-
+#To test if clutch span is not defined & the entity is not in the defined clutch
 ? shardbb \shard

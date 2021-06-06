@@ -40,5 +40,6 @@ Xkye File
 
 
 #getting outputs
-? shardip \shard (3)
+#To test the scenario when the resquested clutch and its default clutch is none
+? shardsubnet \sharding (2)
 

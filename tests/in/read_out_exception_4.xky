@@ -40,5 +40,6 @@ Xkye File
 
 
 #getting outputs
+#To test if clutch(shard3) is none and entity not in default clutch(shard)
 ? shardsubneting \shard (2)
 

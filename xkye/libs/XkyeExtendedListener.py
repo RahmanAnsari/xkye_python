@@ -298,9 +298,8 @@ class XkyeExtendedListener(XkyeListener):
 
             if substrnew not in dictList:
                 if substr in dictList:
-                    substrnew = substr
 
-                    if entity not in list(self.outDict[substrnew].keys()):
+                    if entity not in list(self.outDict[substr].keys()):
                         raise Exception(
                             'Requested entity "'
                             + entity
@@ -309,7 +308,7 @@ class XkyeExtendedListener(XkyeListener):
                         # exit()
 
                     else:
-                        result = self.outDict[substrnew][entity]
+                        result = self.outDict[substr][entity]
                         print(result)
 
                 else:

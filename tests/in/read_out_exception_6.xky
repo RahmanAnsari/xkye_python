@@ -40,5 +40,6 @@ Xkye File
 
 
 #getting outputs
-? shardsubnet \sharding (2)
+#To test if entity not in both clutch(shard3) and default clutch(shard)
+? shardsubneting \shard (3)
 
