@@ -14,28 +14,34 @@ clean-dist:
 clean: clean-pyc clean-dist
 
 test:
-	pytest --cov-report html --cov=xkye -vvv
+	@pytest -vvv
 
 dev: clean
-	pip3 install -r requirements.txt
+	@pip3 install -r requirements.txt
 
-best-practise: clean
-	black xkye
-	pylint xkye	
+lint: clean
+	@printf "\n${BLUE}Running Pylint against source and test files...${NC}\n"
+	@black xkye
+	@printf "\n${BLUE}Running Flake8 against source and test files...${NC}\n"
+	@flake8
+	@printf "\n${BLUE}Running Bandit against source files...${NC}\n"
+	@bandit -r --ini setup.cfg
+	@printf "\n${BLUE}Running Pylint against source and test files...${NC}\n"
+	@pylint --rcfile=setup.cfg **/*.py
 
 dist: clean
-	pip3 install -r requirements.txt
-	python3 setup.py sdist
-	python3 setup.py bdist_wheel
+	@pip3 install -r requirements.txt
+	@python3 setup.py sdist
+	@python3 setup.py bdist_wheel
 
 version: dist
-	python3 setup.py --version
+	@python3 setup.py --version
 
 license: dist
-	python3 setup.py --license
+	@python3 setup.py --license
 
 testpy:
-	python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+	@python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
 deploy:
-	python3 -m twine upload dist/*
+	@python3 -m twine upload dist/*

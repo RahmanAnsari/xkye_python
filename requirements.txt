@@ -7,3 +7,5 @@ black==21.5b2
 Sphinx==4.0.2
 antlr4-python3-runtime==4.9.2
 multipledispatch==0.6.0
+bandit==1.7.0
+flake8==3.9.2

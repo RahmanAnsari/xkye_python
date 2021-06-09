@@ -11,4 +11,4 @@ Below are the list of sources being used to maintain this project,
 - Code Quality Check - [Code Factor](https://www.codefactor.io/)
 - DOCS - [Read the docs](https://readthedocs.org/)
 - Best Practise - [CII Best Practise](https://bestpractices.coreinfrastructure.org/en)
-
+- Vulnerability Analysis - [Synk](https://snyk.io/)
