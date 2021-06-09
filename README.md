@@ -10,7 +10,7 @@ Introducing **Xkye-Python** standard library to provide objective query builder 
 ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/RahmanAnsari/xkye_python?style=for-the-badge&labelColor=000000)
 ![Read the Docs](https://img.shields.io/readthedocs/xkye-python?style=for-the-badge&labelColor=000000)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge&labelColor=000000)
-![Synk Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/rahmanansari/xkye_python?style=for-the-badge)
+![Synk Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/rahmanansari/xkye_python?style=for-the-badge&labelColor=000000)
 
 </br>
 
