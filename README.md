@@ -10,6 +10,7 @@ Introducing **Xkye-Python** standard library to provide objective query builder 
 ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/RahmanAnsari/xkye_python?style=for-the-badge&labelColor=000000)
 ![Read the Docs](https://img.shields.io/readthedocs/xkye-python?style=for-the-badge&labelColor=000000)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge&labelColor=000000)
+![Synk Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/rahmanansari/xkye_python?style=for-the-badge)
 
 </br>
 
@@ -20,6 +21,12 @@ Install library with [pypi](https://pypi.org/):
 ```sh
 $ pip3 install xkye
 ```
+
+</br>
+
+
+![Updates](https://pyup.io/repos/github/RahmanAnsari/xkye_python/shield.svg?style=for-the-badge)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4953/badge)](https://bestpractices.coreinfrastructure.org/projects/4953)
 
 </br>
 
@@ -47,7 +54,7 @@ x.get("entityname","clutchname", clutchspan)
 </br>
 
 ## Examples
-Please see the [examples](https://github.com/RahmanAnsari/xkye_python/tree/main/examples) directory to see some complex examples using xkye-pyhton. For details about xkye syntax and format, use the offical [Xkye-lang](https://github.com/RahmanAnsari/xkye-lang) repo.
+Please see the [examples](examples) directory to see some complex examples using xkye-pyhton. For details about xkye syntax and format, use the offical [Xkye-lang](https://github.com/RahmanAnsari/xkye-lang) repo.
 
 </br>
 
@@ -101,7 +108,7 @@ $ make test
 </br>
 
 ## Code of conduct
-This project and everyone participating in it will be governed by the [Xkye Code of Conduct](https://github.com/RahmanAnsari/xkye_python/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to my email.
+This project and everyone participating in it will be governed by the [Xkye Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to my email.
 
 </br>
 

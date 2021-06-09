@@ -1,4 +1,4 @@
 include VERSION
 include LICENSE
-include PYPIREADME.md
+include README.rst
 include CHANGES.md

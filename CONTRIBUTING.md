@@ -1,13 +1,13 @@
 # Notes for Xkye Contributors
 
-Hi! If you are new to the Xkye community: welcome, and thanks for trying Xkye. Please be sure to respect our [community standards](https://github.com/RahmanAnsari/xkye_python/blob/main/CODE_OF_CONDUCT.md) in all interactions.
+Hi! If you are new to the Xkye community: welcome, and thanks for trying Xkye. Please be sure to respect our [community standards](CODE_OF_CONDUCT.md) in all interactions.
 
 
 ## Before filing an issue
 
-- Reporting a potential bug? Please read the "[How to file a bug report](https://github.com/RahmanAnsari/xkye_python/blob/master/CONTRIBUTING.md#how-to-file-a-bug-report)" section to make sure that all necessary information is included.
+- Reporting a potential bug? Please read the "[How to file a bug report](CONTRIBUTING.md#how-to-file-a-bug-report)" section to make sure that all necessary information is included.
 
-- Contributing code? Be sure to review the [contributor checklist](https://github.com/RahmanAnsari/xkye_python/blob/master/CONTRIBUTING.md#contributor-checklist) for helpful tips on the tools we use to build Xkye.
+- Contributing code? Be sure to review the [contributor checklist](CONTRIBUTING.md#contributor-checklist) for helpful tips on the tools we use to build Xkye.
 
 - Library feature requests are generally not accepted on this issue tracker. New libraries should be developed as packages.
 
@@ -18,13 +18,13 @@ Hi! If you are new to the Xkye community: welcome, and thanks for trying Xkye. P
 
 * [Fork Xkye](https://github.com/RahmanAnsari/xkye_python/fork).
 
-* Build the software and libraries (the first time takes a while, but it's fast after that). Detailed build instructions are in the [README](https://github.com/RahmanAnsari/xkye_python/tree/master/README.md). Xkye depends on few external packages; most are automatically downloaded and installed, but are less frequently updated than Xkye itself.
+* Build the software and libraries (the first time takes a while, but it's fast after that). Detailed build instructions are in the [README](README.md). Xkye depends on few external packages; most are automatically downloaded and installed, but are less frequently updated than Xkye itself.
 
 * Keep Xkye current. Xkye is a fast-moving target, and many details of the language are still settling out. Keep the repository up-to-date and rebase work-in-progress frequently to make merges simpler.
 
 * Learn to use [git](https://git-scm.com), the version control system used by GitHub and the Xkye project. Try a tutorial such as the one [provided by GitHub](https://try.GitHub.io/levels/1/challenges/1).
 
-* For more detailed tips, read the [submission guide](https://github.com/RahmanAnsari/xkye_python/blob/master/CONTRIBUTING.md#submitting-contributions) below.
+* For more detailed tips, read the [submission guide](CONTRIBUTING.md#submitting-contributions) below.
 
 * Relax and have fun!
 
@@ -48,7 +48,7 @@ A useful bug report filed as a GitHub issue provides information about how to re
 
 *By contributing documentation to Xkye, you are agreeing to release it under the [MIT License](https://github.com/RahmanAnsari/xkye-lang/tree/master/LICENSE.md).*
 
-Xkye's documentation source files are stored in the `doc/` directory and [README.md](https://github.com/RahmanAnsari/xkye_python/tree/master/README.md) . Like everything else these can be modified using `git`. Documentation is built with Markdown syntax.
+Xkye's documentation source files are stored in the `doc/` directory and [README.md](README.md) . Like everything else these can be modified using `git`. Documentation is built with Markdown syntax.
 
 
 ### Contributing to core functionality or base libraries

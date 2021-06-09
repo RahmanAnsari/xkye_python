@@ -11,8 +11,7 @@ setup(
     author_email = 'iamrahmanansari@gmail.com',
     url = 'https://github.com/RahmanAnsari/',
     description = 'Official Python Standard Library for Xkye Language',
-    long_description = open('PYPIREADME.md').read().strip(),
-    long_description_content_type='text/markdown',
+    long_description = open('README.rst').read().strip(),
     packages = find_packages(),
     install_requires=[
         # put packages here
