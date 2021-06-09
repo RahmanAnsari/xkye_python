@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added Flae8 & Bandit Linters
 - Added Synk vulnerability analysis
-- Added Pyup & CII best practise matches
+- Added Pyup & CII best practise Badges
 
 ### Updated
 - README documentation update for pypi
