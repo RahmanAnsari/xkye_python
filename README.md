@@ -49,6 +49,9 @@ x.get("entityname","clutchname")
 
 #to get the value of the entity in the given cluth's span
 x.get("entityname","clutchname", clutchspan)
+
+#to get the span count of the given cluster
+x.getSpan("clustername")
 ```
 
 </br>
@@ -100,10 +103,17 @@ Alternatively, it is possible to use the run tests using make file, which wraps 
 $ make test
 ```
 
+To run all of the linters for xkye-python, run:
+
+```sh
+$ make lint
+```
+
 </br>
 
 ## Upcoming features on or before v2.0.0
-- Ability to add entity, clutch and subclutch
+- [x] Ability to get the declared span limit of the cluster
+- [ ] Ability to add entity, clutch and subclutch
 
 </br>
 
