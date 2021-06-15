@@ -7,28 +7,33 @@ A simple example python file
 import os
 from xkye import IO as io
 
+
 def main():
 
-    xkyFile = "example1.xky"
+    """ Example python implementation for XKYE Library"""
+    xky_file = "example1.xky"
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    xkyFile = dir_path+"/"+xkyFile
+    xky_file = dir_path + "/" + xky_file
 
-    x = io(xkyFile)
-    x.read()
+    xfile = io(xky_file)
+    xfile.read()
 
-    print(x.get("pgadmin"))
-    print(x.get("pgadminpwd"))
-    print(x.get("pghost"))
-    print(x.get("pgport"))
-    print(x.get("pgadmindb"))
+    print(xfile.get("pgadmin"))
+    print(xfile.get("pgadminpwd"))
+    print(xfile.get("pghost"))
+    print(xfile.get("pgport"))
+    print(xfile.get("pgadmindb"))
 
-    print(x.get("adminpwd"))
-    print(x.get("dwzypwd"))
+    print(xfile.get("adminpwd"))
+    print(xfile.get("dwzypwd"))
 
-    print(x.get("shardid"))
-    print(x.get("dwzyuser"))
-    print(x.get("dwzydb"))
+    print(xfile.get("shardid"))
+    print(xfile.get("dwzyuser"))
+    print(xfile.get("dwzydb"))
+
+    print(xfile.getSpan("shard"))
+
 
 if __name__ == '__main__':
     main()

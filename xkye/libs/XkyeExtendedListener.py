@@ -13,9 +13,9 @@ class XkyeExtendedListener(XkyeListener):
 
     """Class to extend the auto generated Xkye Listener class"""
 
-    def __init__(self, out_dict):
+    def __init__(self, out_dict, out_span):
         self.out_dict = out_dict
-        self.span_list = []
+        self.span_list = out_span
 
     # Enter a parse tree produced by XkyeParser#clutch.
     def enterGlobe(self, ctx: XkyeParser.GlobeContext):

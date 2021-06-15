@@ -21,6 +21,7 @@ class IO:
 
         self.filename = filename
         self.out_dict = {}
+        self.out_span = []
 
     # To convert the input file into the outdictionary
     def read(self):
@@ -39,7 +40,7 @@ class IO:
         stream = CommonTokenStream(lexer)
         parser = XkyeParser(stream)
         tree = parser.globe()
-        listendx = XkyeExtendedListener(self.out_dict)
+        listendx = XkyeExtendedListener(self.out_dict, self.out_span)
 
         walker = ParseTreeWalker()
         walker.walk(listendx, tree)
@@ -57,7 +58,7 @@ class IO:
             raise Exception(
                 'Requested entity "'
                 + entity
-                + '" not declared above. kindly check your input .xky file'
+                + '" not declared. kindly check your input .xky file'
             )
 
         result = self.out_dict["global"][entity]
@@ -74,14 +75,14 @@ class IO:
             raise Exception(
                 'Requested clutch "'
                 + substr
-                + '" is not declared above. kindly check your input .xky file'
+                + '" is not declared. kindly check your input .xky file'
             )
 
         if entity not in list(self.out_dict[substr].keys()):
             raise Exception(
                 'Requested entity "'
                 + entity
-                + '" not declared above. kindly check your input .xky file'
+                + '" not declared. kindly check your input .xky file'
             )
 
         result = self.out_dict[substr][entity]
@@ -106,13 +107,13 @@ class IO:
                 raise Exception(
                     'Requested entity "'
                     + entity
-                    + '" not declared above. kindly check your input .xky file'
+                    + '" not declared. kindly check your input .xky file'
                 )
 
             raise Exception(
                 'Requested clutch "'
                 + substr
-                + '" is not declared above. kindly check your input .xky file'
+                + '" is not declared. kindly check your input .xky file'
             )
 
         if entity not in list(self.out_dict[substrnew].keys()):
@@ -123,8 +124,32 @@ class IO:
             raise Exception(
                 'Requested entity "'
                 + entity
-                + '" not declared above. kindly check your input .xky file'
+                + '" not declared. kindly check your input .xky file'
             )
 
         result = self.out_dict[substrnew][entity]
         return result
+
+    # To get the declared span for the specified clutch
+    @dispatch(str)
+    def getSpan(self, clutch):  # pylint: disable-msg=C0103
+
+        """To get the span value of the cluster"""
+        clutch_list = []
+        span_list = []
+
+        for clutchpair in self.out_span:
+            clutch_list.append(clutchpair[0])
+            span_list.append(clutchpair[1])
+
+        if clutch not in clutch_list:
+            raise Exception(
+                'Requested clutch "'
+                + clutch
+                + '" not declared. kindly check your input .xky file'
+            )
+
+        index = clutch_list.index(clutch)
+        span_value = span_list[index]
+
+        return span_value
