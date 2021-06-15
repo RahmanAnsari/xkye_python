@@ -41,6 +41,9 @@ Usage
   #to get the value of the entity in the given cluth's span
   x.get("entityname","clutchname", clutchspan)
 
+  #to get the span count of the given cluster
+  x.getSpan("clustername")
+
 |
 
 Examples
@@ -72,6 +75,7 @@ Version matrix
 
 Upcoming features on or before v2.0.0
 ========================================
+* Ability to get the span limit of the given cluster (Completed)
 * Ability to add entity, clutch and subclutch
 
 |

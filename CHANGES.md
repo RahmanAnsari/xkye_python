@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.1] - WIP
 
 ### Added
+- Added ability to the declared cluster span limit
 - Added Flae8 & Bandit Linters
 - Added Synk vulnerability analysis
 - Added Pyup & CII best practise Badges
